@@ -1,0 +1,70 @@
+<!-- ./views/layouts/main.handlebars -->
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Group Buying</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+  <link rel="stylesheet" href="/stylesheets/css/all.css">
+  <link rel="stylesheet" href="/stylesheets/main.css">
+  {{#if indexCSS}}
+  <link rel="stylesheet" href="/stylesheets/index.css">
+  {{/if}}
+  {{#if userCSS}}
+  <link rel="stylesheet" href="/stylesheets/user.css">
+  {{/if}}
+  {{#if todoFormCSS}}
+  <link rel="stylesheet" href="/stylesheets/todo_form.css">
+  {{/if}}
+  {{#if detailCSS}}
+  <link rel="stylesheet" href="/stylesheets/detail.css">
+  {{/if}}
+  {{#if errorCSS}}
+  <link rel="stylesheet" href="/stylesheets/error.css">
+  {{/if}}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+</head>
+
+<body>
+  <div class="overlay"></div>
+
+  <!--Navbar-->
+  <nav class="navbar position-relative">
+    <a href="/" class="navbar-brand text-dark font-weight-bolder border-bottom border-dark">Group buying</a>
+
+    <ul class="navbar-nav d-flex flex-row">
+      {{#if user}}
+      <li class="nav-item">
+        <a href="/posts/new" class="new-task-btn"><i class="fas fa-plus py-1"></i><span
+            class="ml-1 d-none d-md-inline">New
+            Post</span></a>
+      </li>
+      {{/if}}
+      {{#if user}}
+      <li class="nav-item ml-3">
+        <a href="/users/logout" class="log-out-btn">Log out</a>
+      </li>
+      {{else}}
+      <li class="nav-item ml-3">
+        <a href="/users/login" class="log-out-btn">Login Now</a>
+      </li>
+      {{/if}}
+    </ul>
+  </nav>
+
+  {{{body}}}
+
+  <script src="/javascripts/popper.min.js"></script>
+  <script src="/javascripts/jquery-3.4.1.js"></script>
+  <script src="/javascripts/bootstrap.js"></script>
+  {{#if formValidation}}
+  <script src="/javascripts/form-validation.js"></script>
+  {{/if}}
+  {{#if hasAnimation}}
+  <script src="/javascripts/animation-control.js"></script>
+  {{/if}}
+</body>
+
+</html>

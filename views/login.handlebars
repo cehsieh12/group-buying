@@ -1,0 +1,44 @@
+<!-- ./views/login.handlebars -->
+<div class="card card-body shadow text-dark mt-5 mx-auto p-0 border-0 animated 	bounceIn">
+  <h1 class="text-center my-4">
+    Login
+  </h1>
+  <!--Flash message-->
+  {{> messages}}
+
+  <form action="/users/login" method="POST" class="mt-1 mb-4 px-3 needs-validation" novalidate>
+    <!--CSRF token-->
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+    <!--Form-->
+    <div class="form-group form-input position-relative animateField">
+      <i class="far fa-envelope"></i>
+      <label for="email" class="sr-only">Email</label>
+      <input type="email" id="email" name="email" class="form-control" placeholder="Email" required />
+      <div class="valid-feedback">
+        Ready to do!
+      </div>
+      <div class="invalid-feedback">
+        Please fill in a valid email!
+      </div>
+    </div>
+    <div class="form-group form-input position-relative animateField">
+      <i class="fas fa-lock"></i>
+      <label for="password" class="sr-only">Password</label>
+      <input type="password" id="password" name="password" class="form-control" placeholder="Password"
+        pattern="\S{8,12}" minlength="8" maxlength="12" required />
+      <div class="valid-feedback">
+        Ready to do!
+      </div>
+      <div class="invalid-feedback">
+        Password length must be between 8-12!
+      </div>
+    </div>
+    <button type="submit" class="user-form-btn btn-block btn-orange">Login</button>
+
+    <!--No account-->
+    <div class="d-flex justify-content-between align-items-center mt-4 ">
+      <p class=" m-0 text-muted">No account yet? Sign up now!</p>
+      <a href="/users/register" class="login-signup-btn flex-grow-1 text-center ml-5">Register</a>
+    </div>
+  </form>
+</div>

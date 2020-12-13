@@ -1,0 +1,52 @@
+<!--Detail Page-->
+<section id="display-container" class="position-relative rounded shadow">
+  <div class="rounded" id="display-panel">
+    <h3 class="text-center pt-3 pb-3"><u>Todo</u></h3>
+    <div class="detail-panel-title mb-2 d-flex align-items-center px-3">
+      <h5 class="m-0 pr-3"><i class="far fa-file-alt"></i></h5>
+      <h4 class="m-0">{{todo.name}}</h4>
+      <h5 class="my-0 ml-auto">
+        {{#if todo.done}}
+        <span class="badge badge-success">Done</span>
+        {{else}}
+        <span class="badge badge-danger">Undone</span>
+        {{/if}}
+      </h5>
+    </div>
+    <div class="detail-panel-title mb-2 d-flex align-items-center px-3">
+      <h5 class="m-0 pr-3"><i class="far fa-calendar-check"></i></h5>
+      <p class="m-0">{{todo.dueDate}}</p>
+    </div>
+    <div class="detail-panel-detail mb-2 px-3 d-flex flex-column justify-content-between text-break">
+      <p class="p-0 m-0 pt-2">{{#if todo.detail}}{{todo.detail}}{{else}}No Detail...{{/if}}</p>
+      <div class="detail-buttons d-flex justify-content-end pb-1">
+        <a href="/todos/edit/{{todo.id}}" class="mr-1 edit-btn"><i class="fas fa-edit"></i></a>
+        <button type="button" class="delete-btn" data-toggle="modal" data-target="#d{{todo.id}}">
+          <i class="fas fa-trash"></i>
+        </button>
+      </div>
+      <div class="modal fade delete-modal" id="d{{todo.id}}" tabindex="-1" role="dialog"
+        aria-labelledby="Model for delete warning" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header border-0 pb-1">
+              <h5 class="modal-title" id="exampleModalCenterTitle"><i
+                  class="fas fa-exclamation-triangle mr-2 text-danger"></i>Delete Confirmation</h5>
+            </div>
+            <div class="modal-body">
+              <h5 class="p-0 m-0">You sure want to delete "{{todo.name}}"?</h5>
+            </div>
+            <div class="modal-footer delete-model-btns border-0 pt-1">
+              <button type="button" id="delete-model-back" data-dismiss="modal">Go back</button>
+              <form action="/todos/delete/{{todo.id}}?_method=DELETE" method="post" class="m-0">
+                <!--CSRF token-->
+                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                <button type="submit" id="delete-model-delete">Delete</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
