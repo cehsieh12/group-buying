@@ -3,7 +3,7 @@
 Clone this repository to your local machine
 
 ```
-$ git clone 
+$ git clone https://github.com/cehsieh12/group-buying.git
 ```
 
 ### Setup Datebase
@@ -22,7 +22,7 @@ use group_buying;
 **Enter the project folder**
 
 ```
-$ cd group_buying
+$ cd group-buying
 ```
 
 **Install packages via npm**
@@ -31,13 +31,13 @@ $ cd group_buying
 $ npm install
 ```
 
-**Edit password in config.json file**
+**Create config.json file in confile folder**
 
 > /config/config.json
 ```
 "development": {
   "username": "root",
-  "password": "<YOUR_WORKBENCH_PASSWORD>",
+  "password": "<YOUR_MySQL_WORKBENCH_PASSWORD>",
   "database": "group_buying",
   "host": "127.0.0.1",
   "dialect": "mysql",
