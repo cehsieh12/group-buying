@@ -56,7 +56,7 @@ $ npx sequelize db:migrate
 **Activate the server**
 
 ```
-$ npm run dev
+$ npm start
 ```
 
 **Find the message for successful activation**
