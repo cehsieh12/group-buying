@@ -1,6 +1,7 @@
 body {
   position: relative;
-  /* background: url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?ixlib=rb-1.2.1&auto=format&fit=crop&w=2992&q=80'); */
+  /* Backgroud*/
+  background: url('https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
   background-position: center;
   background-size: cover;
   height: 100vh;
@@ -24,12 +25,13 @@ nav .new-task-btn {
   border-radius: 30px;
 }
 
+/*Login now*/
 nav .log-out-btn {
-  background: #FFFFFF;
+  /*background: #FFFFFF;*/
   padding: 8px 12px;
   border-radius: 30px;
   text-decoration: none;
-  color: #505050;
+  color: #FFFFFF; /*#505050*/
 }
 
 /*Display Section*/
