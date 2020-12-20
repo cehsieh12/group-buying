@@ -16,6 +16,17 @@
   --dropdown_item_hoverbg: rgba(226, 216, 252, 0.8); /* purple */
   --dropdown_divider: #6c757d;
 
+  /* New Group */
+  --newgroup_field_fg: gray-dark;
+  --newgroup_field_bg: white;
+  --newgroup_field_bolder: rgba(49, 243, 242, 0.5);
+  --newgroup_field_typing: gray-dark;
+  --newgroup_field_typing_bg: rgba(216, 242, 252);
+  --newgroup_field_typing_bolder: rgba(49, 243, 242, 0.5);
+  --newgroup_field_typing_shadow: rgba(49, 243, 242, 0.1);
+  --newgroup_field_title:;
+
+
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -1874,10 +1885,10 @@ pre code {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #495057;
-  background-color: #fff;
+  color: var(--newgroup_field_fg);
+  background-color: var(--newgroup_field_bg);
   background-clip: padding-box;
-  border: 1px solid #ced4da;
+  border: 1px solid var(--newgroup_field_bolder);
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -1894,11 +1905,11 @@ pre code {
 }
 
 .form-control:focus {
-  color: #495057;
-  background-color: #fff;
-  border-color: #80bdff;
+  color: var(--newgroup_field_typing);
+  background-color: var(--newgroup_field_typing_bg);
+  border-color: var(--newgroup_field_typing_bolder);
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 0.2rem var(--newgroup_field_typing_shadow);
 }
 
 .form-control::-webkit-input-placeholder {
@@ -2008,6 +2019,7 @@ textarea.form-control {
 
 .form-group {
   margin-bottom: 1rem;
+  color: var(--newgroup_field_title);
 }
 
 .form-text {
@@ -2022,6 +2034,7 @@ textarea.form-control {
   flex-wrap: wrap;
   margin-right: -5px;
   margin-left: -5px;
+  color: var(--newgroup_field_title);
 }
 
 .form-row > .col,
