@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Buy Together</title>       {{!-- {{改：Buy Together}} --}}
+  <title>Buy Together</title>                                                                                         {{!-- {{改：Buy Together}} --}}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/stylesheets/bootstrap.css">
   <link rel="stylesheet" href="/stylesheets/css/all.css">
@@ -35,22 +35,24 @@
     <a href="/" class="navbar-brand text-dark font-weight-bolder border-bottom border-dark">Buy Together</a>         {{!-- {{改：左上角的 Buy Together}} --}}
 
     <ul class="navbar-nav d-flex flex-row">
+
       {{#if user}}
       <li class="nav-item">
         <a href="/posts/new" class="new-task-btn"><i class="fas fa-plus py-1"></i><span
-            class="ml-1 d-none d-md-inline">New
-            Post</span></a>
+            class="ml-1 d-none d-md-inline">New Group</span></a>
       </li>
-      {{/if}}
-      {{#if user}}
       <li class="nav-item ml-3">
         <a href="/users/logout" class="log-out-btn">Log out</a>
       </li>
       {{else}}
+      <li class="nav-item">
+        <a href="/posts/add" class="new-task-btn"><i class="fas fa-plus py-1"></i><span
+            class="ml-1 d-none d-md-inline">Ad</span></a>                                             {{!-- {{改：Ad 的 link}} --}}
+      </li>
       <li class="nav-item ml-3">
         <a href="/users/login" class="log-out-btn">Login Now</a>
       </li>
-      {{/if}}
+      {{/if}}     
     </ul>
   </nav>
 

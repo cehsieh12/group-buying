@@ -1,66 +1,135 @@
 <!--New todo-->
 <section id="display-container" class="position-relative rounded shadow">
   <div class="rounded" id="display-panel">
-    <h3 class="text-center pt-3"><u>New Group</u></h3>
+    <h3 class="text-center pt-3">New Group</h3>
     <!--Flash message-->
     {{> messages}}
 
     <form action="/posts/new" method="post" class="pt-3 needs-validation" novalidate>
       <!--CSRF token-->
       <input type="hidden" name="_csrf" value="{{csrfToken}}">
+
       <!--Form-->
+
       <!--Title-->
       <div class="form-group mt-2">
-        <small class="tool-tip name-tip">Title</small>
-        <label for="title" class="sr-only">New Post</label>
-        <input type="text" class="form-control" id="title" name="title" placeholder="Enter new title" minlength="1"
+        <small class="tool-tip name-tip">Group Name</small>
+        <label for="title" class="sr-only">Group Name</label>
+        <input type="text" class="form-control" id="title" name="title" placeholder="Create your group name" minlength="1"
           value="{{post.title}}" required>
         <div class="invalid-feedback">
-          Please fill in!
+          Please fill in your group name!
         </div>
       </div>
+
+ 
       <div class="form-row">
-        <!-- Number of People -->
+        <!--category-->
         <div class="col-md-4 col-sm-12 tool-tip-container animateField">
-          <small class="tool-tip date-tip">Number of People</small>
-          <label for="numberOfPeople" class="sr-only">Number of People</label>
+          <small class="tool-tip date-tip">Category</small>
+          <label for="category" class="sr-only">Category</label>
+          <select class="form-control" id="category" name="category">
+            <option value="food">Food</option>
+            <option value="supplies">Daily Supplies</option>
+            <option value="apparel">Apparel</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="others">Others</option>
+          </select>
+          <div class="invalid-feedback">
+            Please fill in!
+          </div>
+        </div>
+
+        <!--Area-->
+        <div class="col-md-4 col-sm-12 tool-tip-container animateField">
+          <small class="tool-tip date-tip">Area</small>
+          <label for="category" class="sr-only">Area</label>
+          <select class="form-control" id="category" name="category">
+            <option value="Taipei">Taipei</option>
+            <option value="Taoyuan">Taoyuan</option>
+            <option value="Hsinchu">Hsinchu</option>
+            <option value="Miaoli">Miaoli</option>
+            <option value="Taichung">Taichung</option>
+            <option value="Changhua">Changhua</option>
+            <option value="Nantou">Nantou</option>
+            <option value="Yunlin">Yunlin</option>
+            <option value="Chiayi">Chiayi</option>
+            <option value="Tainan">Tainan</option>
+            <option value="Kaohsiung">Kaohsiung</option>
+            <option value="Pingtung">Pingtung</option>
+            <option value="Yilan">Yilan</option>
+            <option value="Hualien">Hualien</option>
+            <option value="Taitung">Taitung</option>
+            <option value="Penghu">Penghu</option>
+            <option value="Green Island & Orchid Island">Green Island & Orchid Island</option>
+            <option value="Kinmen & Matsu">Kinmen & Matsu</option>
+          </select>
+          <div class="invalid-feedback">
+            Please fill in!
+          </div>
+        </div>
+
+        <!--Due Date-->
+        <div class="col-md-4 col-sm-12 tool-tip-container animateField">
+          <small class="tool-tip date-tip">Due Date</small>
+          <label for="dueDate" class="sr-only">Due Date</label>
+          <input type="date" class="form-control pr-1" id="dueDate" name="dueDate" value="{{post.dueDate}}"
+            min="2020-12-29" max="2025-12-31" required>
+          <div class="invalid-feedback">
+            When is due?
+          </div>
+        </div>
+
+      </div>
+
+      <br>
+
+      <div class="form-row">
+
+        <!-- Minimum Number of People -->
+        <div class="col-md-4 col-sm-12 tool-tip-container animateField">
+          <small class="tool-tip date-tip">Minimum Number of People</small>
+          <label for="numberOfPeople" class="sr-only">>Minimum Number of People</label>
           <input type="number" class="form-control pr-1" id="numberOfPeople" name="numberOfPeople"
             value="{{post.numberOfPeople}}" required>
           <div class="invalid-feedback">
             Please fill in!
           </div>
         </div>
-        <!--category-->
+
+        <!-- Maximum Number of People -->
         <div class="col-md-4 col-sm-12 tool-tip-container animateField">
-          <small class="tool-tip date-tip">Category</small>
-          <label for="category" class="sr-only">Category</label>
-          <select class="form-control" id="category" name="category">
-            <option value="food">食物</option>
-            <option value="necessity">日用品</option>
-            <option value="other">其他</option>
-          </select>
+          <small class="tool-tip date-tip">Maximum Number of People</small>
+          <label for="numberOfPeople" class="sr-only">>Maximum Number of People</label>
+          <input type="number" class="form-control pr-1" id="numberOfPeople" name="numberOfPeople"
+            value="{{post.numberOfPeople}}" required>
           <div class="invalid-feedback">
             Please fill in!
           </div>
         </div>
-        <!--Due Date-->
+
+        <!-- Contact Info-->
         <div class="col-md-4 col-sm-12 tool-tip-container animateField">
-          <small class="tool-tip date-tip">Due Date</small>
-          <label for="dueDate" class="sr-only">Due Date</label>
-          <input type="date" class="form-control pr-1" id="dueDate" name="dueDate" value="{{post.dueDate}}"
-            min="2020-12-01" max="2025-12-31" required>
+          <small class="tool-tip date-tip">Contact Information</small>
+          <label for="category" class="sr-only">Contact Information</label>
+          <select class="form-control" id="category" name="category">
+            <option value="phone">Phone</option>
+            <option value="mail">Email</option>
+          </select>
           <div class="invalid-feedback">
-            Please fill in!
+            Phone or email?
           </div>
         </div>
       </div>
+
       <!--Content-->
       <div class="form-group mt-2">
         <small class="tool-tip name-tip">Content</small>
         <label for="content" class="sr-only">Content</label>
-        <textarea class="form-control" name="content" id="content" rows="3" placeholder="Give some description here..."
+        <textarea class="form-control" name="content" id="content" rows="3" placeholder="Give some additional description here..."
           maxlength="60">{{post.content}}</textarea>
       </div>
+
       <!--Status-->
       <!--
       <div class="btn-group btn-group-toggle mb-3 d-flex pt-1 tool-tip-container" data-toggle="buttons">
@@ -75,6 +144,7 @@
         </label>
       </div>
       -->
+
       <hr>
       <button type="submit" class="btn btn-block todo-submit">Submit</button>
     </form>
