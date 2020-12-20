@@ -1,45 +1,69 @@
 <!--Todo list-->
 <section id="display-container" class="rounded shadow">
   <div class="rounded position" id="display-panel">
-    <h3 class="text-center py-3"><u>All Posts</u></h3>
+    <h3 class="text-center py-3">All Groups</h3>
     <form action="/search" method="get" id="filter-panel" class="mb-1">
       <div class="form-row">
-        <div class="dropdown col-6 text-center">
+
+        <div class="dropdown col-4 text-center">
           <button class="btn btn-link dropdown-toggle text-dark" type="button" id="sortDropDownMenu"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{#if filter.sort}}{{filter.sort}}{{else}}Sort{{/if}}
+            {{#if filter.sort}}{{filter.sort}}{{else}}Area{{/if}}
           </button>
           <div class="dropdown-menu" aria-labelledby="sortDropDownMenu">
             <input type="hidden" name="preSort" value="{{filter.sort}}">
-            <input type="submit" class="dropdown-item text-muted" name="sort" value="Deadline">
+            <input type="submit" class="dropdown-item" name="sort" value="Taipei">
+            <input type="submit" class="dropdown-item" name="sort" value="Taoyuan">
+            <input type="submit" class="dropdown-item" name="sort" value="Hsinchu">
+            <input type="submit" class="dropdown-item" name="sort" value="Miaoli">           
+            <input type="submit" class="dropdown-item" name="sort" value="Taichung">
+            <input type="submit" class="dropdown-item" name="sort" value="Changhua">
+            <input type="submit" class="dropdown-item" name="sort" value="Nantou">
+            <input type="submit" class="dropdown-item" name="sort" value="Yunlin">
+            <input type="submit" class="dropdown-item" name="sort" value="Chiayi">
+            <input type="submit" class="dropdown-item" name="sort" value="Tainan">
+            <input type="submit" class="dropdown-item" name="sort" value="Kaohsiung">
+            <input type="submit" class="dropdown-item" name="sort" value="Pingtung">
+            <input type="submit" class="dropdown-item" name="sort" value="Yilan">
+            <input type="submit" class="dropdown-item" name="sort" value="Hualien">
+            <input type="submit" class="dropdown-item" name="sort" value="Taitung">
+            <input type="submit" class="dropdown-item" name="sort" value="Penghu">
+            <input type="submit" class="dropdown-item" name="sort" value="Green Island & Orchid Island">
+            <input type="submit" class="dropdown-item" name="sort" value="Kinmen & Matsu">
+            <div class="dropdown-divider"></div>
+            <input type="submit" class="dropdown-item" name="doneReset" value="Reset">
           </div>
         </div>
-        {{!-- <div class="dropdown col-4 text-center">
+
+        <div class="dropdown col-4 text-center">
           <button class="btn btn-link dropdown-toggle text-dark" type="button" id="dateDropDownMenu"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{#if filter.dueDate}}{{filter.dueDate}}{{else}}Date{{/if}}
+            {{#if filter.dueDate}}{{filter.dueDate}}{{else}}Deadline{{/if}}
           </button>
           <div class="dropdown-menu" aria-labelledby="dateDropDownMenu">
             <input type="hidden" name="preDate" value="{{filter.dueDate}}">
-            {{#each dateOptions}}
-            <input type="submit" class="dropdown-item text-muted" name="date" value="{{this}}">
-            {{/each}}
+            <input type="submit" class="dropdown-item" name="date" value="24 hours">
+            <input type="submit" class="dropdown-item" name="date" value="3 days">
+            <input type="submit" class="dropdown-item" name="date" value="A week">
             <div class="dropdown-divider"></div>
-            <input type="submit" class="dropdown-item text-muted" name="dateReset" value="Reset">
+            <input type="submit" class="dropdown-item" name="dateReset" value="Reset">
           </div>
-        </div> --}}
-        <div class="dropdown col-6 text-center">
+        </div>
+
+        <div class="dropdown col-4 text-center">
           <button class="btn btn-link dropdown-toggle text-dark" type="button" id="statusDropDownMenu"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{#if filter.status}}{{filter.status}}{{else}}Category{{/if}}
           </button>
           <div class="dropdown-menu" aria-labelledby="statusDropDownMenu">
             <input type="hidden" name="preDone" value="{{filter.status}}">
-            <input type="submit" class="dropdown-item text-muted" name="category" value="食物">
-            <input type="submit" class="dropdown-item text-muted" name="category" value="日常用品">
-            <input type="submit" class="dropdown-item text-muted" name="category" value="其他">
+            <input type="submit" class="dropdown-item" name="category" value="Food">
+            <input type="submit" class="dropdown-item" name="category" value="Daily Supplies">
+            <input type="submit" class="dropdown-item" name="category" value="Apparel">
+            <input type="submit" class="dropdown-item" name="category" value="Entertainment">
+            <input type="submit" class="dropdown-item" name="category" value="Others">
             <div class="dropdown-divider"></div>
-            <input type="submit" class="dropdown-item text-muted" name="doneReset" value="Reset">
+            <input type="submit" class="dropdown-item" name="doneReset" value="Reset">
           </div>
         </div>
       </div>
@@ -48,6 +72,7 @@
     <div class="todo-list">
       <div class="row animated bounceInUp">
         <div class="card-columns">
+
           {{#each posts}}
           <div class="col">
             <div class="card bg-light mb-3">
@@ -55,49 +80,68 @@
                 <h5 class="card-title">{{this.title}}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{this.category}}</h6>
                 <p class="card-text">{{this.content}}</p>
-                <a href="/posts/view/{{this.id}}" class="card-link">Detail</a>
+                <a href="/posts/view/{{this.id}}" class="card-link btn-block">+1</a>
               </div>
             </div>
           </div>
           {{/each}}
+
+ {{!-- {{ Example Groups }} --}}
           <div class="col">
             <div class="card bg-light mb-3">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's
-                  content.</p>
-                <a href="#" class="card-link">Detail</a>
+                <h5 class="card-title">星巴克買一送一</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Food</h6>
+                <p class="card-text">
+                  Deadline: 2020/12/31<br/>
+                  Min number: 2<br/>
+                  Max number: 2<br/>
+                  Area: 文山區, Taipei<br/>
+                  Contact information: phone<br/>
+                  Number now: 1<br/>
+                </p>
+                <a href="/posts/view/{{this.id}}" class="card-link btn-block">+1</a>
               </div>
             </div>
           </div>
           <div class="col">
             <div class="card bg-light mb-3">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's
-                  content.</p>
-                <a href="#" class="card-link">Detail</a>
+                <h5 class="card-title">星巴克買一送一</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Food</h6>
+                <p class="card-text">
+                  Deadline: 2020/12/31<br/>
+                  Min number: 2<br/>
+                  Max number: 2<br/>
+                  Area: 文山區, Taipei<br/>
+                  Contact information: phone<br/>
+                  Number now: 1<br/>
+                </p>
+                <a href="/posts/view/{{this.id}}" class="card-link btn-block">+1</a>
               </div>
             </div>
           </div>
           <div class="col">
             <div class="card bg-light mb-3">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's
-                  content.</p>
-                <a href="#" class="card-link">Detail</a>
+                <h5 class="card-title">星巴克買一送一</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Food</h6>
+                <p class="card-text">
+                  Deadline: 2020/12/31<br/>
+                  Min number: 2<br/>
+                  Max number: 2<br/>
+                  Area: 文山區, Taipei<br/>
+                  Contact information: phone<br/>
+                  Number now: 1<br/>
+                </p>
+                <a href="/posts/view/{{this.id}}" class="card-link btn-block">+1</a>
               </div>
             </div>
           </div>
+
         </div>
       </div>
+
       {{!--
       {{#each posts}}
       <div class="row animated bounceInUp">
@@ -141,9 +185,10 @@
         </div>
       </div>
       {{/each}} --}}
+
       {{#if noPost}}
       <div class="row align-items-center justify-content-center text-muted">
-        <i class="far fa-smile-beam pr-1"></i>No post here!
+        <i class="far fa-smile-beam pr-1"></i>No Ad Now!
       </div>
       {{/if}}
     </div>
