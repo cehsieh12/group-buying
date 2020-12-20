@@ -1,10 +1,18 @@
+:root{
+  --navbar: #505050;                      /* gray */
+  --groupspanel: rgba(64, 64, 64, .4);    /* gray */
+  --groupspanelhead: #31f3f2;             /* blue */
+}
+
+
 body {
   position: relative;
   /* Backgroud*/
-  background: url('https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+  /* background: url('https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'); */
+  background: url('https://github.com/angel870326/BuyTogether/blob/main/img/Cute%20Christmas%20Cards%20Collection%20by%20Slidesgo.png?raw=true');
   background-position: center;
   background-size: cover;
-  height: 100vh;
+  height: 110vh;
   z-index: -2;
 }
 
@@ -18,33 +26,38 @@ div.overlay {
   z-index: -1;
 }
 
-/*Navbar*/
+/* Navbar */
+
+/* New group */
 nav .new-task-btn {
-  color: #505050;
+  color: var(--navbar);
   padding: 8px 12px;
   border-radius: 30px;
 }
 
-/*Login now*/
+/* Login now or Logout */
 nav .log-out-btn {
-  /*background: #FFFFFF;*/
   padding: 8px 12px;
   border-radius: 30px;
   text-decoration: none;
-  color: #FFFFFF; /*#505050*/
+  color: var(--navbar);
 }
 
-/*Display Section*/
+/* Display Section */
 section#display-container {
   width: 90%;
   margin: 50px auto;
 }
 
+/* groups panel background */
 #display-panel {
-  background: rgba(64, 64, 64, .4);
+  background: var(--groupspanel);
   padding: 0 15px 3px 15px;
 }
 
+/* groups panel header */
 #display-panel h3 {
-  color: rgb(240, 240, 240);
+  color: var(--groupspanelhead);
 }
+
+

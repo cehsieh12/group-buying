@@ -1,7 +1,7 @@
 <!-- ./views/register.handlebars -->
 <div class="card card-body shadow text-dark mt-5 mx-auto p-0 border-0 animated 	bounceIn">
   <h1 class="text-center my-4">
-    Register
+    Register now!
   </h1>
   <!--Flash message-->
   {{> messages}}
@@ -10,49 +10,92 @@
     <!--CSRF token-->
     <input type="hidden" name="_csrf" value="{{csrfToken}}">
     <!--Form-->
+
     <div class="form-group form-input position-relative animateField">
       <i class="fas fa-signature"></i>
-      <label for="name" class="sr-only">Name</label>
-      <input type="name" id="name" name="name" class="form-control" placeholder="Name" minlength="1" maxlength="10"
+      <label for="id" class="sr-only">Create your ID</label>
+      <input type="id" id="id" name="id" class="form-control" placeholder="Create your ID" minlength="1" maxlength="10"
         value="{{{todoData.name}}}" required />
       <div class="valid-feedback">
-        Ready to do!
+        Ready!
       </div>
       <div class="invalid-feedback">
-        Please fill in a name!
+        Please create your ID!
       </div>
     </div>
+
+    <div class="form-group form-input position-relative animateField">
+      <i class="fas fa-signature"></i>
+      <label for="fname" class="sr-only">First Name</label>
+      <input type="fname" id="fname" name="fname" class="form-control" placeholder="First Name" minlength="1" maxlength="10"
+        value="{{{todoData.name}}}" required />
+      <div class="valid-feedback">
+        Ready!
+      </div>
+      <div class="invalid-feedback">
+        Please fill in your first name!
+      </div>
+    </div>
+
+    <div class="form-group form-input position-relative animateField">
+      <i class="fas fa-signature"></i>
+      <label for="lname" class="sr-only">Last Name</label>
+      <input type="lname" id="lname" name="lname" class="form-control" placeholder="Last Name" minlength="1" maxlength="10"
+        value="{{{todoData.name}}}" required />
+      <div class="valid-feedback">
+        Ready!
+      </div>
+      <div class="invalid-feedback">
+        Please fill in your last name!
+      </div>
+    </div>
+
+    <div class="form-group form-input position-relative animateField">
+      <i class="fas fa-signature"></i>
+      <label for="phone" class="sr-only">Phone Number</label>
+      <input type="phone" id="phone" name="phone" class="form-control" placeholder="Phone Number" minlength="1" maxlength="10"
+        value="{{{todoData.name}}}" required />
+      <div class="valid-feedback">
+        Ready!
+      </div>
+      <div class="invalid-feedback">
+        Please fill in your phone number!
+      </div>
+    </div>
+
     <div class="form-group form-input position-relative animateField">
       <i class="far fa-envelope"></i>
       <label for="email" class="sr-only">Email</label>
       <input type="email" id="email" name="email" class="form-control" placeholder="Email" value="{{{todoData.email}}}"
         required />
       <div class="valid-feedback">
-        Ready to do!
+        Ready!
       </div>
       <div class="invalid-feedback">
         Please fill in a valid email!
       </div>
     </div>
+
     <div class="form-group form-input position-relative animateField">
       <i class="fas fa-lock"></i>
       <label for="password" class="sr-only">Password</label>
       <input type="password" id="password" name="password" class="form-control" placeholder="Password"
         value="{{{todoData.password}}}" pattern="\S{8,12}" minlength="8" maxlength="12" required />
       <div class="valid-feedback">
-        Ready to do!
+        Ready!
       </div>
       <div class="invalid-feedback">
         Password length must be between 8-12!
       </div>
     </div>
+
     <div class="form-group form-input position-relative animateField">
       <i class="fas fa-lock"></i>
       <label for="password2" class="sr-only">Confirm Password</label>
       <input type="password" id="password2" name="password2" class="form-control" placeholder="Confirm Password"
         value="{{{todoData.password2}}}" pattern="\S{8,12}" minlength="8" maxlength="12" required />
       <div class="valid-feedback">
-        Ready to do!
+        Ready!
       </div>
       <div class="invalid-feedback">
         Password doesn't match!
