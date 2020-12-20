@@ -1,3 +1,12 @@
+/* All Groups */
+
+:root{
+  --bar: rgba(226, 216, 252, 0.8);    /* light purple */
+  --group_lists: transparent; 
+  --cardlink: white;
+  --btnbg: #6c208d;                   /* darkest purple */
+}
+
 button:focus {
   outline: none;
 }
@@ -6,9 +15,10 @@ section {
   z-index: 1;
 }
 
+/* Area, Deadline, Category Bar */
 #filter-panel {
   min-height: 40px;
-  background: rgba(176, 176, 176, .6);
+  background: var(--bar);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -24,20 +34,23 @@ section {
   padding: 0;
 }
 
-
+/* Group List background - transparent now */
 .todo-list .row {
   min-height: 55px;
   border-radius: 5px;
   list-style-type: none;
   margin: 5px 0;
   font-size: 1.5rem;
-  background: rgba(176, 176, 176, .6);
+  background: var(--group_lists);
   padding: 0 5px;
 }
 
 .todo-list .row:first-of-type {
   margin-top: 0;
 }
+
+
+/* unknown */
 
 .todo-list .input-container {
   position: relative;
@@ -99,11 +112,16 @@ section {
   display: block;
 }
 
+/* Card Link Button */
 .todo-list a,
 .todo-list .delete-btn {
-  color: #383838;
+  text-align: center;
+  padding: 2px 0;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--cardlink);
   font-size: 1.3rem;
-  background-color: transparent;
+  background-color: var(--btnbg);
   border: none;
 }
 
@@ -113,6 +131,7 @@ section {
   color: #000000;
 }
 
+/* unknown */
 .input-container small {
   font-size: .8rem;
   line-height: .8rem;

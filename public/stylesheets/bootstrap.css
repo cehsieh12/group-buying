@@ -5,6 +5,17 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 :root {
+
+  --card_color: rgba(216, 242, 252, 0.8);          /* blue */
+  --card_bolder: rgba(49, 243, 242, 0.5);          /* blue */
+  --card_title: #6c208d;                           /* darkest purple */
+  --dropdown_item: #6c757d;
+  --dropdown_menu: #212529;     /* unknown */
+  --dropdown_menu_bg: rgba(255, 255, 255, 0.8);    /* white */
+  --dropdown_item_hover: #16181b;
+  --dropdown_item_hoverbg: rgba(226, 216, 252, 0.8); /* purple */
+  --dropdown_divider: #6c757d;
+
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -81,6 +92,7 @@ h1, h2, h3, h4, h5, h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  font-size: 15px;
 }
 
 abbr[title],
@@ -3065,10 +3077,10 @@ input[type="button"].btn-block {
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
   font-size: 1rem;
-  color: #212529;
+  color: var(--dropdown_menu); /* #212529 */
   text-align: left;
   list-style: none;
-  background-color: #fff;
+  background-color: var(--dropdown_menu_bg);
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.25rem;
@@ -3223,7 +3235,7 @@ input[type="button"].btn-block {
   height: 0;
   margin: 0.5rem 0;
   overflow: hidden;
-  border-top: 1px solid #e9ecef;
+  border-top: 1px solid var(--dropdown_divider);  /* #e9ecef */
 }
 
 .dropdown-item {
@@ -3232,7 +3244,7 @@ input[type="button"].btn-block {
   padding: 0.25rem 1.5rem;
   clear: both;
   font-weight: 400;
-  color: #212529;
+  color: var(--dropdown_item); /* #212529 */
   text-align: inherit;
   white-space: nowrap;
   background-color: transparent;
@@ -3240,9 +3252,9 @@ input[type="button"].btn-block {
 }
 
 .dropdown-item:hover, .dropdown-item:focus {
-  color: #16181b;
+  color: var(--dropdown_item_hover);  /* #16181b */
   text-decoration: none;
-  background-color: #f8f9fa;
+  background-color: var(--dropdown_item_hoverbg);  /* #f8f9fa */
 }
 
 .dropdown-item.active, .dropdown-item:active {
@@ -4559,7 +4571,7 @@ input[type="button"].btn-block {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid var(--card_bolder);
   border-radius: 0.25rem;
 }
 
@@ -4582,10 +4594,13 @@ input[type="button"].btn-block {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding: 1.25rem;
+  background-color: var(--card_color);
 }
 
 .card-title {
   margin-bottom: 0.75rem;
+  font-style: italic;
+  color: var(--card_title);
 }
 
 .card-subtitle {

@@ -1,7 +1,7 @@
 :root{
   --navbar: #505050;                      /* gray */
-  --groupspanel: rgba(64, 64, 64, .4);    /* gray */
-  --groupspanelhead: #31f3f2;             /* blue */
+  --groupspanel: rgba(216, 242, 252, 0.6);    /* blue */
+  --groupspanelhead: #6c208d;             /* purple */
 }
 
 
