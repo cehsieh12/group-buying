@@ -1,0 +1,152 @@
+<!-- ./views/register.handlebars -->
+<div class="card card-body shadow text-dark mt-5 mx-auto p-0 border-0 animated 	bounceIn">
+  <h1 class="text-center my-4">
+    Register now!
+  </h1>
+  <!--Flash message-->
+  {{> messages}}
+
+  <form action="/users/register" method="POST" class="mt-1 mb-4 px-3 needs-validation" novalidate>
+    <!--CSRF token-->
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+    <!--Form-->
+
+    {{!-- id是否為自動生成,如果是則使用者不需要輸入id --}}
+    {{!-- <div class="form-group form-input position-relative animateField">
+      <i class="fas fa-signature"></i>
+      <label for="id" class="sr-only">Create your ID</label>
+      <input type="id" id="id" name="id" class="form-control" placeholder="Create your ID" minlength="1" maxlength="10"
+        value="{{{todoData.name}}}" required />
+      <div class="valid-feedback">
+        Ready!
+      </div>
+      <div class="invalid-feedback">
+        Please create your ID!
+      </div>
+    </div> --}}
+
+    <div class="form-group form-input position-relative animateField">
+      <i class="fas fa-signature"></i>
+      <label for="fname" class="sr-only">First Name</label>
+      <input type="fname" id="fname" name="fname" class="form-control" placeholder="First Name" minlength="1" maxlength="10"
+        value="{{{todoData.Fname}}}" required />
+      <div class="valid-feedback">
+        Ready!
+      </div>
+      <div class="invalid-feedback">
+        Please fill in your first name!
+      </div>
+    </div>
+
+    <div class="form-group form-input position-relative animateField">
+      <i class="fas fa-signature"></i>
+      <label for="lname" class="sr-only">Last Name</label>
+      <input type="lname" id="lname" name="lname" class="form-control" placeholder="Last Name" minlength="1" maxlength="10"
+        value="{{{todoData.Lname}}}" required />
+      <div class="valid-feedback">
+        Ready!
+      </div>
+      <div class="invalid-feedback">
+        Please fill in your last name!
+      </div>
+    </div>
+
+    <div class="form-group form-input position-relative animateField">
+      <i class="fas fa-signature"></i>
+      <label for="Address" class="sr-only">Address</label>
+      <input type="Address" id="Address" name="Address" class="form-control" placeholder="Address" 
+        value="{{{todoData.Address}}}" required />
+      <div class="valid-feedback">
+        Ready!
+      </div>
+      <div class="invalid-feedback">
+        Please fill in your Address!
+      </div>
+    </div>
+
+    <div class="form-group form-input position-relative animateField">
+      <i class="fas fa-signature"></i>
+      <label for="phone" class="sr-only">Phone Number</label>
+      <input type="phone" id="phone" name="phone" class="form-control" placeholder="Phone Number" minlength="1" maxlength="10"
+        value="{{{todoData.phone}}}" required />
+      <div class="valid-feedback">
+        Ready!
+      </div>
+      <div class="invalid-feedback">
+        Please fill in your phone number!
+      </div>
+    </div>
+
+    <div class="form-group form-input position-relative animateField">
+      <i class="far fa-envelope"></i>
+      <label for="email" class="sr-only">Email</label>
+      <input type="email" id="email" name="email" class="form-control" placeholder="Email" value="{{{todoData.email}}}"
+        required />
+      <div class="valid-feedback">
+        Ready!
+      </div>
+      <div class="invalid-feedback">
+        Please fill in a valid email!
+      </div>
+    </div>
+
+        <div class="form-group form-input position-relative animateField">
+      <i class="far fa-envelope"></i>
+      <label for="Birthday" class="sr-only">Birthday</label>
+      <input type="Birthday" id="Birthday" name="Birthday" class="form-control" placeholder="Birthday" value="{{{todoData.Birthday}}}"
+        required />
+      <div class="valid-feedback">
+        Ready!
+      </div>
+      <div class="invalid-feedback">
+        Please fill in a your Birthday!
+      </div>
+    </div>
+
+            <div class="form-group form-input position-relative animateField">
+      <i class="far fa-envelope"></i>
+      <label for="gender" class="sr-only">sex</label>
+      <input type="sex" id="sex" name="sex" class="form-control" placeholder="sex" value="{{{todoData.sex}}}"
+        required />
+      <div class="valid-feedback">
+        Ready!
+      </div>
+      <div class="invalid-feedback">
+        Please fill in a your gender!
+      </div>
+    </div
+
+    <div class="form-group form-input position-relative animateField">
+      <i class="fas fa-lock"></i>
+      <label for="password" class="sr-only">Password</label>
+      <input type="password" id="password" name="password" class="form-control" placeholder="Password"
+        value="{{{todoData.password}}}" pattern="\S{8,12}" minlength="8" maxlength="12" required />
+      <div class="valid-feedback">
+        Ready!
+      </div>
+      <div class="invalid-feedback">
+        Password length must be between 8-12!
+      </div>
+    </div>
+
+    <div class="form-group form-input position-relative animateField">
+      <i class="fas fa-lock"></i>
+      <label for="password2" class="sr-only">Confirm Password</label>
+      <input type="password" id="password2" name="password2" class="form-control" placeholder="Confirm Password"
+        value="{{{todoData.password2}}}" pattern="\S{8,12}" minlength="8" maxlength="12" required />
+      <div class="valid-feedback">
+        Ready!
+      </div>
+      <div class="invalid-feedback">
+        Password doesn't match!
+      </div>
+    </div>
+    <button type="submit" class="user-form-btn btn-block btn-orange">Register</button>
+
+    <!--Already have an account-->
+    <div class="d-flex justify-content-between align-items-center mt-4 ">
+      <p class=" m-0 text-muted">Have an account? Log in now!</p>
+      <a href="/users/login" class="login-signup-btn flex-grow-1 text-center ml-5">Login</a>
+    </div>
+  </form>
+</div>
