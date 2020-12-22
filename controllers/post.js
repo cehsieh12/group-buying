@@ -15,7 +15,7 @@ module.exports = {
   },
   // advertisement
   getNewAd:(req,res) =>{
-    res.render('ad',)
+    res.render('ad', { adCSS: true, formValidation: true })
   },
   postNewPost: (req, res) => {
     // keep user input
