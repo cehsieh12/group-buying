@@ -4,8 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Buy Together</title>                                                         {{!-- {{改：Buy Together}} --}}
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Buy Together</title>
   <link rel="stylesheet" href="/stylesheets/bootstrap.css">
   <link rel="stylesheet" href="/stylesheets/css/all.css">
   <link rel="stylesheet" href="/stylesheets/main.css">
@@ -34,27 +33,32 @@
   <div class="overlay"></div>
 
   <!--Navbar-->
+  
   <nav class="navbar position-relative">
-    <a href="/" class="navbar-brand logo font-weight-bolder">Buy Together</a>         {{!-- {{改：左上角的 Buy Together}} --}}
+    <a href="/" class="navbar-brand logo font-weight-bolder">Buy Together</a> 
 
     <ul class="navbar-nav d-flex flex-row">
 
+      <!-- 有登入 -->
       {{#if user}}
+
+      <!-- New Group -->
       <li class="nav-item">
         <a href="/posts/new" class="new-task-btn"><i class="fas fa-plus py-1"></i><span
             class="ml-1 d-md-inline add-bar">New Group</span></a>
       </li>
 
+      <!-- Account (user.Fname) -->
       <i class="nav-item">
         <a href="/users/{{user.id}}" class="new-task-btn"><i class="fas fa-user-circle py-1"></i><span
             class="ml-1 d-md-inline add-bar">{{user.Fname}}</span></a>                                             {{!-- {{改：Account 的 link}} --}}
       </i>
 
+      <!-- Log out -->
       <i class="nav-item">
         <a href="/users/logout" class="log-out-btn"><i class="fas fa-sign-out-alt py-1"></i><span
             class="ml-1 d-md-inline add-bar">Log out</span></a>
       </i>
-
 
       {{!--
       {{<li class="nav-item ml-3">
@@ -62,10 +66,16 @@
       </li>}}
       --}}
 
+
+      <!-- 未登入 -->
       {{else}}
+
+      <!-- Ad -->
       <li class="nav-item">
         <a href="/posts/ad" class="new-task-btn"><i class="fas fa-plus py-1"></i><span
-            class="ml-1 d-none d-md-inline add-bar">Ad</span></a>                                             {{!-- {{改：Ad 的 link}} --}}
+            class="ml-1 d-none d-md-inline add-bar">Ad</span></a>  
+
+      <!-- Login -->
       </li>
       <i class="nav-item">
         <a href="/users/login" class="log-out-btn"><i class="fas fa-sign-in-alt py-1"></i><span
@@ -77,7 +87,6 @@
         <a href="/users/login" class="log-out-btn">Login</a>
       </li>}}
       --}}
-
 
       {{/if}}     
     </ul>
