@@ -14,6 +14,10 @@ router.get('/', isAuthenticated, postController.getViewAllPost)
 // create 
 router.get('/new', isAuthenticated, postController.getNewPost)
 
+// advertisement
+router.get('/ad', postController.getNewAd)
+
+
 // create todo submit
 // router.post('/new', isAuthenticated, validation.newPost, postController.postNewPost)
 
