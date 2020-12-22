@@ -13,6 +13,10 @@ module.exports = {
   getNewPost: (req, res) => {
     res.render('new', { postFormCSS: true, formValidation: true })
   },
+  // advertisement
+  getNewAd:(req,res) =>{
+    res.render('ad',)
+  },
   postNewPost: (req, res) => {
     // keep user input
     const { title, content, numberOfPeople, category, initiatorId, dueDate } = req.body
