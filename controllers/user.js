@@ -57,5 +57,8 @@ module.exports = {
     req.logout()
     req.flash('success', 'Log out successfully, see you next time :)')
     res.redirect('/users/login')
+  },
+  getAccount:(req,res) =>{
+    res.render('account',)
   }
 }

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Group Buying</title>
+  <title>Buy Together</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/stylesheets/bootstrap.css">
   <link rel="stylesheet" href="/stylesheets/css/all.css">
@@ -45,6 +45,11 @@
       {{#if user}}
       <li class="nav-item ml-3">
         <a href="/users/logout" class="log-out-btn">Log out</a>
+      </li>
+      <li>
+        <a href="/users/{{user.id}}" class="mx-3">
+          {{user.name}}
+        </a>
       </li>
       {{else}}
       <li class="nav-item ml-3">

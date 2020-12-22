@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const passport = require('passport')
+const { isAuthenticated } = require('../config/auth')
 
 // Include Controller
 const userController = require('../controllers/user')
@@ -25,5 +26,8 @@ router.post('/register', validation.registerUser, userController.postRegister)
 
 // 登出
 router.get('/logout', userController.getLogout)
+
+// 我的帳戶頁面
+router.get('/:uid', isAuthenticated, userController.getAccount)
 
 module.exports = router
