@@ -13,7 +13,7 @@ module.exports = {
     res.render('register', { userCSS: true, formValidation: true })
   },
   postRegister: (req, res) => {
-    const { name, email, password, password2 } = req.body
+    const { Fname, Lname, address, phone, Birth, email, sex, password, password2 } = req.body
     // retrieve error message from req
     const errors = validationResult(req)
     // validation failed
@@ -22,7 +22,7 @@ module.exports = {
         userCSS: true,
         formValidation: true,
         warning: errors.array(),
-        todoData: { name, email, password, password2 }
+        todoData: { Fname, Lname, address, phone, Birth, email, sex, password, password2}
       })
     }
     // validation passed
@@ -30,7 +30,7 @@ module.exports = {
       .then(async (user) => {
         if (user) {
           console.log('User already exists')
-          res.render('register', { todoData: { name, email, password, password2 } })
+          res.render('register', { todoData: { Fname, Lname, address, phone, Birth, email, sex, password, password2} })
         } else {
           try {
             //create hashed password
@@ -39,8 +39,13 @@ module.exports = {
 
             // create new user
             const newUser = new User({
-              name,
-              email,
+              Fname, 
+              Lname,
+              address, 
+              phone, 
+              Birth, 
+              email, 
+              sex,
               password: hash
             })
             newUser
@@ -49,7 +54,7 @@ module.exports = {
               .catch(err => console.log(err))
           } catch (error) {
             console.log(error)
-          }
+          } 
         }
       })
   },
