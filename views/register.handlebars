@@ -11,7 +11,8 @@
     <input type="hidden" name="_csrf" value="{{csrfToken}}">
     <!--Form-->
 
-    <div class="form-group form-input position-relative animateField">
+    {{!-- id是否為自動生成,如果是則使用者不需要輸入id --}}
+    {{!-- <div class="form-group form-input position-relative animateField">
       <i class="fas fa-signature"></i>
       <label for="id" class="sr-only">Create your ID</label>
       <input type="id" id="id" name="id" class="form-control" placeholder="Create your ID" minlength="1" maxlength="10"
@@ -22,13 +23,13 @@
       <div class="invalid-feedback">
         Please create your ID!
       </div>
-    </div>
+    </div> --}}
 
     <div class="form-group form-input position-relative animateField">
       <i class="fas fa-signature"></i>
       <label for="fname" class="sr-only">First Name</label>
-      <input type="fname" id="fname" name="fname" class="form-control" placeholder="First Name" minlength="1" maxlength="10"
-        value="{{{todoData.name}}}" required />
+      <input type="text" id="fname" name="Fname" class="form-control" placeholder="First Name" minlength="1" maxlength="10"
+        value="{{{todoData.Fname}}}" required />
       <div class="valid-feedback">
         Ready!
       </div>
@@ -39,9 +40,9 @@
 
     <div class="form-group form-input position-relative animateField">
       <i class="fas fa-signature"></i>
-      <label for="lname" class="sr-only">Last Name</label>
-      <input type="lname" id="lname" name="lname" class="form-control" placeholder="Last Name" minlength="1" maxlength="10"
-        value="{{{todoData.name}}}" required />
+      <label for="Lname" class="sr-only">Last Name</label>
+      <input type="text" id="Lname" name="Lname" class="form-control" placeholder="Last Name" minlength="1" maxlength="10"
+        value="{{{todoData.Lname}}}" required />
       <div class="valid-feedback">
         Ready!
       </div>
@@ -52,9 +53,22 @@
 
     <div class="form-group form-input position-relative animateField">
       <i class="fas fa-signature"></i>
+      <label for="Address" class="sr-only">Address</label>
+      <input type="text" id="Address" name="Address" class="form-control" placeholder="Address" 
+        value="{{{todoData.Address}}}" required />
+      <div class="valid-feedback">
+        Ready!
+      </div>
+      <div class="invalid-feedback">
+        Please fill in your Address!
+      </div>
+    </div>
+
+    <div class="form-group form-input position-relative animateField">
+      <i class="fas fa-signature"></i>
       <label for="phone" class="sr-only">Phone Number</label>
-      <input type="phone" id="phone" name="phone" class="form-control" placeholder="Phone Number" minlength="1" maxlength="10"
-        value="{{{todoData.name}}}" required />
+      <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone Number" minlength="8" maxlength="10"
+        value="{{{todoData.phone}}}" required />
       <div class="valid-feedback">
         Ready!
       </div>
@@ -66,7 +80,7 @@
     <div class="form-group form-input position-relative animateField">
       <i class="far fa-envelope"></i>
       <label for="email" class="sr-only">Email</label>
-      <input type="email" id="email" name="email" class="form-control" placeholder="Email" value="{{{todoData.email}}}"
+      <input type="text" id="email" name="email" class="form-control" placeholder="Email" value="{{{todoData.email}}}"
         required />
       <div class="valid-feedback">
         Ready!
@@ -75,6 +89,33 @@
         Please fill in a valid email!
       </div>
     </div>
+
+    <div class="form-group form-input position-relative animateField">
+      <i class="far fa-envelope"></i>
+      <label for="Birth" class="sr-only">Birth</label>
+      <input type="text" id="Birth" name="Birth" class="form-control" placeholder="Birth" value="{{{todoData.Birth}}}"
+        required />
+      <div class="valid-feedback">
+        Ready!
+      </div>
+      <div class="invalid-feedback">
+        Please fill in a your Birth!
+      </div>
+    </div>
+
+     <div class="form-group form-input position-relative animateField">
+        <!--category-->
+          <label for="gender" class="sr-only">Gender</label>
+          <select class="form-control" id="gender" name="gender">
+            <option value="Men">Men</option>
+            <option value="Women">Women</option>
+            <option value="X">X</option>
+          </select>
+          <div class="invalid-feedback">
+            Please choose Gender!
+          </div>
+    </div>
+
 
     <div class="form-group form-input position-relative animateField">
       <i class="fas fa-lock"></i>
@@ -88,7 +129,6 @@
         Password length must be between 8-12!
       </div>
     </div>
-
     <div class="form-group form-input position-relative animateField">
       <i class="fas fa-lock"></i>
       <label for="password2" class="sr-only">Confirm Password</label>
@@ -102,7 +142,6 @@
       </div>
     </div>
     <button type="submit" class="user-form-btn btn-block btn-orange">Register</button>
-
     <!--Already have an account-->
     <div class="d-flex justify-content-between align-items-center mt-4 ">
       <p class=" m-0 text-muted">Have an account? Log in now!</p>
