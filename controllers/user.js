@@ -45,7 +45,6 @@ module.exports = {
               Birth, 
               email, 
               gender,
-              name,
               email,
               password: hash
             })
