@@ -47,7 +47,7 @@ module.exports = {
 	      //   isDate: true,     //驗證是否是有效日期
         // }
       },
-      sex: {
+      gender: {
         allowNull: false,
         type: Sequelize.STRING
         // type: Sequelize.ENUM(['men', 'women', 'X']), //性别只能是“男,女,X”的其中一個
