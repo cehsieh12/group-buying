@@ -2,6 +2,11 @@
   --navbar: #505050;                      /* gray */
   --groupspanel: rgba(216, 242, 252, 0.6);    /* blue */
   --groupspanelhead: #6c208d;             /* purple */
+  --logo_color: white;
+  --logo_shadow: #31fffa; /* rgba(49, 243, 242) */
+  --logo_hover: white;
+  --logo_hover_shadow: #f79102;
+
 }
 
 
@@ -26,6 +31,19 @@ div.overlay {
   z-index: -1;
 }
 
+/* (Add) Logo */
+.logo {
+  color: var(--logo_color);
+  font-family: fantasy, cursive, serif;
+  font-size: 30px;
+  text-shadow: 2px 2px 1px var(--logo_shadow);
+}
+.logo:hover {
+  text-decoration: none;
+  color: var(--logo_hover);
+  text-shadow: 2px 2px 1px var(--logo_hover_shadow);
+}
+
 /* Navbar */
 
 /* New group */
@@ -35,12 +53,19 @@ nav .new-task-btn {
   border-radius: 30px;
 }
 
+nav .new-task-btn:hover {
+  text-shadow: 1px 1px 2px white;  
+}
+
 /* Login now or Logout */
 nav .log-out-btn {
   padding: 8px 12px;
   border-radius: 30px;
   text-decoration: none;
   color: var(--navbar);
+}
+nav .log-out-btn:hover {
+  text-shadow: 1px 1px 2px white;
 }
 
 /* Display Section */

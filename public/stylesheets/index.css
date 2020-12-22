@@ -1,9 +1,9 @@
 /* All Groups */
 
 :root{
-  --bar: rgba(226, 216, 252, 0.8);    /* light purple */
+  --bar: rgba(226, 216, 252, 0.8);    /* light purple #e2d8fc */
   --group_lists: transparent; 
-  --cardlink: white;
+  --cardlink: rgba(255, 255, 255, 0.9);
   --btnbg: #6c208d;                   /* darkest purple */
 }
 
@@ -15,12 +15,19 @@ section {
   z-index: 1;
 }
 
+.all-groups {
+  font-family: fantasy, cursive, serif;
+  font-weight: bold;
+  text-shadow: 3px 3px 2px white;
+}
+
 /* Area, Deadline, Category Bar */
 #filter-panel {
   min-height: 40px;
   background: var(--bar);
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  background-image: linear-gradient(#d4c6fb, #e2d8fc, #f0eafd); /* purple 漸層 */
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 #filter-panel .dropdown-menu {
@@ -117,9 +124,10 @@ section {
 .todo-list .delete-btn {
   text-align: center;
   padding: 2px 0;
-  border-radius: 10px;
+  border-radius: 20px;
   text-decoration: none;
   color: var(--cardlink);
+  font-family: "Courier New";
   font-size: 1.3rem;
   background-color: var(--btnbg);
   border: none;
@@ -128,7 +136,10 @@ section {
 .todo-list a:hover,
 .todo-list .delete-btn:hover {
   text-decoration: none;
-  color: #000000;
+  color: white;
+  -webkit-box-shadow: 1px 1px 8px -1px rgba(71,71,71,1);
+  -moz-box-shadow: 1px 1px 8px -1px rgb(63, 25, 25);
+  box-shadow: 1px 1px 8px -1px rgba(71,71,71,1);
 }
 
 /* unknown */

@@ -11,7 +11,7 @@
 
 
 .card {
-  background-color: rgba(255,255,255,.9);   /* white */
+  background-color: rgba(255,255,255,.8);   /* white */
   max-width: 420px;
 }
 
@@ -19,9 +19,26 @@
   display: block;
   content: "";
   height: 7px;
-  background: linear-gradient(90deg, rgba(49,48,54,1) 0%, rgba(103,103,103,1) 0%, rgba(199,197,197,1) 100%);;
+  background: linear-gradient(90deg, #965801 0%, #f79102 30%, #fec371 100%);;
   border-radius: .25rem .25rem 0 0;
 }
+
+
+/* (Add) Login */
+.login-text-new {
+  color: var(--loginbtn);
+  text-shadow: 0 1px 0 var(--registerbtn);
+}
+
+/* (Add) Login */
+.form-contorl-user {
+  background-color: white;
+}
+
+.form-contorl-user:focus {
+  background-color: #fff6ee;
+}
+
 
 /* Email & Password icon */
 form .form-input i {
