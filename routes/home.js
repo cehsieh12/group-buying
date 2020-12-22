@@ -5,6 +5,6 @@ const { isAuthenticated } = require('../config/auth')
 // Include controller
 const homeController = require('../controllers/home')
 
-router.get('/', isAuthenticated, homeController.getHome)
+router.get('/', homeController.getHome)
 
 module.exports = router

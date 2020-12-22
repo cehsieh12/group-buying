@@ -18,14 +18,14 @@ section {
   overflow-y: scroll;
 }
 
-.todo-list {
+.group-list {
   max-height: 400px;
   overflow-y: scroll;
   padding: 0;
 }
 
 
-.todo-list .row {
+.group-list .row {
   min-height: 55px;
   border-radius: 5px;
   list-style-type: none;
@@ -35,11 +35,11 @@ section {
   padding: 0 5px;
 }
 
-.todo-list .row:first-of-type {
+.group-list .row:first-of-type {
   margin-top: 0;
 }
 
-.todo-list .input-container {
+.group-list .input-container {
   position: relative;
   cursor: pointer;
   -webkit-user-select: none;
@@ -49,7 +49,7 @@ section {
 }
 
 /*Hide default checkbox*/
-.todo-list .input-container input {
+.group-list .input-container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -58,7 +58,7 @@ section {
 }
 
 /*custom checkbox*/
-.todo-list .input-container .checkmark {
+.group-list .input-container .checkmark {
   position: absolute;
   top: 50%;
   left: 0;
@@ -70,7 +70,7 @@ section {
 }
 
 /*background styling*/
-.todo-list .input-container input:checked~.checkmark {
+.group-list .input-container input:checked~.checkmark {
   background-color: #3B945E;
   border: none;
   transition: all .2s linear;
@@ -99,16 +99,16 @@ section {
   display: block;
 }
 
-.todo-list a,
-.todo-list .delete-btn {
+.group-list a,
+.group-list .delete-btn {
   color: #383838;
   font-size: 1.3rem;
   background-color: transparent;
   border: none;
 }
 
-.todo-list a:hover,
-.todo-list .delete-btn:hover {
+.group-list a:hover,
+.group-list .delete-btn:hover {
   text-decoration: none;
   color: #000000;
 }
@@ -119,13 +119,13 @@ section {
   color: rgb(107, 104, 104);
 }
 
-.todo-list .delete-modal {
+.group-list .delete-modal {
   color: #505050;
 }
 
-.todo-list .delete-modal .modal-body {}
+.group-list .delete-modal .modal-body {}
 
-.todo-list .delete-model-btns button {
+.group-list .delete-model-btns button {
   background: #FFFFFF;
   padding: 2px 12px;
   border-radius: 30px;
@@ -134,26 +134,26 @@ section {
   font-size: 1.2rem;
 }
 
-.todo-list .delete-model-btns button:focus {
+.group-list .delete-model-btns button:focus {
   outline: none;
 }
 
-.todo-list .delete-model-btns button:hover {
+.group-list .delete-model-btns button:hover {
   -webkit-box-shadow: 1px 1px 5px 0px rgba(227, 227, 227, 1);
   -moz-box-shadow: 1px 1px 5px 0px rgba(227, 227, 227, 1);
   box-shadow: 1px 1px 5px 0px rgba(227, 227, 227, 1);
 }
 
-.todo-list .delete-model-btns #delete-model-back:hover,
-.todo-list .delete-model-btns #delete-model-back:active {
+.group-list .delete-model-btns #delete-model-back:hover,
+.group-list .delete-model-btns #delete-model-back:active {
   color: #14A76C;
   border-color: #14A76C;
   transition: all .3s linear;
   border-style: solid;
 }
 
-.todo-list .delete-model-btns #delete-model-delete:hover,
-.todo-list .delete-model-btns #delete-model-delete:active {
+.group-list .delete-model-btns #delete-model-delete:hover,
+.group-list .delete-model-btns #delete-model-delete:active {
   color: #C3073F;
   border-color: #C3073F;
   transition: all .3s linear;

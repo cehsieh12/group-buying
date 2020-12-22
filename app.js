@@ -9,21 +9,21 @@ const bodyParser = require('body-parser')
 const csrf = require('csurf')
 const methodOverride = require('method-override')
 const userRoutes = require('./routes/user')
-const postRoutes = require('./routes/post')
+const groupRoutes = require('./routes/group')
 const homeRoutes = require('./routes/home')
 const authRoutes = require('./routes/auth')
-const searchRoutes = require('./routes/search')
+// const searchRoutes = require('./routes/search')
 const passport = require('passport')
 const session = require('express-session')
 const errorController = require('./controllers/error')
-
 // Initialize csrf protection  middleware
 const csrfProtection = csrf()
 
 // Include models
 const db = require('./models')
-const Posts = db.Posts
 const User = db.User
+const Join = db.Join
+const Group = db.Group
 
 const port = 3000
 
@@ -64,13 +64,13 @@ app.use((req, res, next) => {
 
 app.use(express.static('public'))
 
-app.use('/posts', postRoutes)
+app.use('/groups', groupRoutes)
 
 app.use('/users', userRoutes)
 
 app.use('/auth', authRoutes)
 
-app.use('/search', searchRoutes)
+// app.use('/search', searchRoutes)
 
 app.use('/', homeRoutes)
 

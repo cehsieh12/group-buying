@@ -1,34 +1,75 @@
-<!--New todo-->
 <section id="display-container" class="position-relative rounded shadow">
   <div class="rounded" id="display-panel">
     <h3 class="text-center pt-3"><u>New Post</u></h3>
     <!--Flash message-->
     {{> messages}}
 
-    <form action="/posts/new" method="post" class="pt-3 needs-validation" novalidate>
+    <form action="/groups/new" method="post" class="pt-3 needs-validation" novalidate>
       <!--CSRF token-->
       <input type="hidden" name="_csrf" value="{{csrfToken}}">
       <!--Form-->
-      <!--Title-->
+      <!--Name-->
       <div class="form-group mt-2">
-        <small class="tool-tip name-tip">Title</small>
-        <label for="title" class="sr-only">New Post</label>
-        <input type="text" class="form-control" id="title" name="title" placeholder="Enter new title" minlength="1"
-          value="{{post.title}}" required>
+        <small class="tool-tip name-tip">Name</small>
+        <label for="name" class="sr-only">New Post</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Enter new group name" minlength="1"
+          value="{{group.name}}" required>
         <div class="invalid-feedback">
           Please fill in!
         </div>
       </div>
       <div class="form-row">
-        <!-- Number of People -->
+        <!-- Min Number of People -->
         <div class="col-md-4 col-sm-12 tool-tip-container animateField">
-          <small class="tool-tip date-tip">Number of People</small>
-          <label for="numberOfPeople" class="sr-only">Number of People</label>
-          <input type="number" class="form-control pr-1" id="numberOfPeople" name="numberOfPeople"
-            value="{{post.numberOfPeople}}" required>
+          <small class="tool-tip date-tip">Min Number of People</small>
+          <label for="minNum" class="sr-only">Min Number of People</label>
+          <input type="number" class="form-control pr-1" id="minNum" name="minNum" value="{{group.minNum}}" required>
           <div class="invalid-feedback">
             Please fill in!
           </div>
+        </div>
+        <!-- Max Number of People -->
+        <div class="col-md-4 col-sm-12 tool-tip-container animateField">
+          <small class="tool-tip date-tip">Max Number of People</small>
+          <label for="maxNum" class="sr-only">Max Number of People</label>
+          <input type="number" class="form-control pr-1" id="maxNum" name="maxNum" value="{{group.maxNum}}" required>
+          <div class="invalid-feedback">
+            Please fill in!
+          </div>
+        </div>
+        <!--Deadline-->
+        <div class="col-md-4 col-sm-12 tool-tip-container animateField">
+          <small class="tool-tip date-tip">Deadline</small>
+          <label for="deadline" class="sr-only">Deadline</label>
+          <input type="date" class="form-control pr-1" id="deadline" name="deadline" value="{{group.dueDate}}"
+            min="2020-12-01" max="2025-12-31" required>
+          <div class="invalid-feedback">
+            Please fill in!
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <!--Addr-->
+        <div class="col-md-6 col-sm-12 tool-tip-container animateField">
+          <small class="tool-tip name-tip">Addr</small>
+          <label for="addr" class="sr-only">Addr</label>
+          <input type="text" class="form-control" id="addr" name="addr" minlength="1" value="{{group.addr}}" required>
+        </div>
+        <!--contactInfo-->
+        <div class="col-md-6 col-sm-12 tool-tip-container animateField">
+          <small class="tool-tip name-tip">Contact Info</small>
+          <label for="contactInfo" class="sr-only">Contact Info</label>
+          <input type="text" class="form-control" id="contactInfo" name="contactInfo" minlength="1"
+            value="{{group.contactInfo}}" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <!--product name-->
+        <div class="col-md-4 col-sm-12 tool-tip-container animateField">
+          <small class="tool-tip name-tip">product name</small>
+          <label for="p_name" class="sr-only">product name</label>
+          <input type="text" class="form-control" id="p_name" name="p_name" minlength="1" value="{{group.p_name}}"
+            required>
         </div>
         <!--category-->
         <div class="col-md-4 col-sm-12 tool-tip-container animateField">
@@ -43,38 +84,13 @@
             Please fill in!
           </div>
         </div>
-        <!--Due Date-->
+        <!--product price-->
         <div class="col-md-4 col-sm-12 tool-tip-container animateField">
-          <small class="tool-tip date-tip">Due Date</small>
-          <label for="dueDate" class="sr-only">Due Date</label>
-          <input type="date" class="form-control pr-1" id="dueDate" name="dueDate" value="{{post.dueDate}}"
-            min="2020-12-01" max="2025-12-31" required>
-          <div class="invalid-feedback">
-            Please fill in!
-          </div>
+          <small class="tool-tip name-tip">Product price</small>
+          <label for="price" class="sr-only">Product price</label>
+          <input type="number" class="form-control" id="price" name="price" value="{{group.price}}" required>
         </div>
       </div>
-      <!--Content-->
-      <div class="form-group mt-2">
-        <small class="tool-tip name-tip">Content</small>
-        <label for="content" class="sr-only">Content</label>
-        <textarea class="form-control" name="content" id="content" rows="3" placeholder="Give some description here..."
-          maxlength="60">{{post.content}}</textarea>
-      </div>
-      <!--Status-->
-      <!--
-      <div class="btn-group btn-group-toggle mb-3 d-flex pt-1 tool-tip-container" data-toggle="buttons">
-        <small class="tool-tip status-tip">Current Status</small>
-        <label class="btn btn-sm btn-secondary {{#if todo.done}}active{{/if}}">
-          <input type="radio" name="status" id="done" value="done" autocomplete="off" {{#if
-            todo.done}}checked{{/if}}>Done
-        </label>
-        <label class="btn btn-sm btn-secondary {{#if todo.notDone}}active{{/if}}">
-          <input type="radio" name="status" id="notDone" value="notDone" autocomplete="off" {{#if
-            todo.notDone}}checked{{/if}}>Undone
-        </label>
-      </div>
-      -->
       <hr>
       <button type="submit" class="btn btn-block todo-submit">Submit</button>
     </form>

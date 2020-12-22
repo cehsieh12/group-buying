@@ -1,6 +1,6 @@
-div.detail-panel-title  {
-  min-height:40px;
-  background: rgba(176,176,176, .6);
+div.detail-panel-title {
+  min-height: 40px;
+  background: rgba(176, 176, 176, .6);
 }
 
 div.detail-panel-title .badge {
@@ -11,31 +11,35 @@ div.detail-panel-title .badge-danger {
   opacity: .9;
 }
 
-div.detail-panel-detail  {
-  min-height:100px;
-  background: rgba(176,176,176, .6);
+div.detail-panel-detail {
+  min-height: 100px;
+  background: rgba(176, 176, 176, .6);
 }
 
-div.detail-panel-detail:hover .edit-btn,
+/* div.detail-panel-detail:hover .edit-btn,
 div.detail-panel-detail:hover .delete-btn {
   visibility: visible;
   opacity: 1;
   transition: all .2s linear;
-}
+} */
 
 .edit-btn,
-.delete-btn {
-  color: rgb(73, 72, 72);
+.delete-btn,
+.join-btn,
+.out-btn {
+  color: #000000;
   font-size: 1.3rem;
   background-color: transparent;
   border: none;
-  visibility: hidden;
-  opacity: 0;
+  /* visibility: hidden; */
+  /* opacity: 0; */
   text-shadow: 1px 1px 1px #4C4C4C;
 }
 
 .edit-btn:hover,
-.delete-btn:hover {
+.delete-btn:hover,
+.join-btn:hover,
+.out-btn:hover {
   text-decoration: none;
   color: #000000;
 }
@@ -59,9 +63,9 @@ div.detail-panel-detail:hover .delete-btn {
 }
 
 .delete-model-btns button:hover {
-  -webkit-box-shadow: 1px 1px 5px 0px rgba(227,227,227,1);
-  -moz-box-shadow: 1px 1px 5px 0px rgba(227,227,227,1);
-  box-shadow: 1px 1px 5px 0px rgba(227,227,227,1);
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(227, 227, 227, 1);
+  -moz-box-shadow: 1px 1px 5px 0px rgba(227, 227, 227, 1);
+  box-shadow: 1px 1px 5px 0px rgba(227, 227, 227, 1);
 }
 
 .delete-model-btns #delete-model-back:hover {

@@ -1,5 +1,5 @@
 {
-  "name": "todo-sequelize",
+  "name": "buy-together",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -22,15 +22,18 @@
     "express-session": "^1.16.2",
     "express-validator": "^6.1.1",
     "method-override": "^3.0.0",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.32",
     "mysql": "^2.18.1",
     "mysql2": "^1.6.5",
     "passport": "^0.4.0",
     "passport-facebook": "^3.0.0",
     "passport-local": "^1.0.0",
-    "sequelize": "^5.10.1",
+    "sequelize": "^5.22.3",
     "sequelize-cli": "^5.5.0"
   },
   "devDependencies": {
+    "handlebars": "^4.5.0",
     "nodemon": "^1.19.4"
   }
 }

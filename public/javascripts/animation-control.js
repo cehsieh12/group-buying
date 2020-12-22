@@ -1,12 +1,11 @@
 (function () {
   window.addEventListener('load', event => {
-    // Add animation to todoLisst
-    const todoList = document.querySelectorAll('.todo-list .animated')
-    console.log(todoList)
-    todoList.forEach(todo => {
+    // Add animation to groupLisst
+    const groupList = document.querySelectorAll('.group-list .animated')
+    groupList.forEach(group => {
       // remove animation tags when animation ends
-      todo.addEventListener('animationend', event => {
-        todo.classList.remove('animated', 'bounceInUp')
+      group.addEventListener('animationend', event => {
+        group.classList.remove('animated', 'bounceInUp')
       })
     })
   })

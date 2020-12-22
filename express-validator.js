@@ -1,42 +1,26 @@
 const { body } = require('express-validator')
 module.exports = {
-  newTodo: [
+  newPost: [
     // validate name field
     body('name')
-      .isLength({ min: 1, max: 10 })
-      .withMessage('Name is required, max 10 letters'),
-    // check status field
-    body('status')
-      .custom(value => {
-        if (value !== 'done' && value !== 'notDone') {
-          throw new Error('Please choose a task status')
+      .isLength({ min: 1})
+      .withMessage('Group name is required'),
+    // Number of People
+    body('minNum')
+      .isInt({ gt: 0 })
+      .withMessage('At least 1 person'),
+    body('maxNum')
+      .isInt({ gt: 0 })
+      .custom((value, { req }) => {
+        if (value < req.body.minNum) {
+          throw new Error('Max number of people should be greater than min number of people')
         }
-        // if status passed validation
         return true
       }),
-    // check detail field
-    body('detail')
-      .isLength({ max: 60 })
-      .withMessage('Detail length must be less than 60 words')
-  ],
-  editTodo: [
-    // validate name field
-    body('name')
-      .isLength({ min: 1, max: 10 })
-      .withMessage('Name is required, max 10 letters'),
-    // check status field
-    body('status')
-      .custom(value => {
-        if (value !== 'done' && value !== 'notDone') {
-          throw new Error('Please choose a task status')
-        }
-        // if status passed validation
-        return true
-      }),
-    // check detail field
-    body('detail')
-      .isLength({ max: 60 })
-      .withMessage('Detail length must be less than 60 words')
+    // check dueDate field
+    body('deadline')
+      .isAfter(new Date().toDateString())
+      .withMessage('DeadLine Date should be after today!')
   ],
   registerUser: [
     body('name')
