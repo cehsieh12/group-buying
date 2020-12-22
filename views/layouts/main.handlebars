@@ -4,13 +4,16 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Buy Together</title>                                                                                         {{!-- {{改：Buy Together}} --}}
+  <title>Buy Together</title>                                                         {{!-- {{改：Buy Together}} --}}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/stylesheets/bootstrap.css">
   <link rel="stylesheet" href="/stylesheets/css/all.css">
   <link rel="stylesheet" href="/stylesheets/main.css">
   {{#if indexCSS}}
   <link rel="stylesheet" href="/stylesheets/index.css">
+  {{/if}}
+  {{#if postFormCSS}}
+  <link rel="stylesheet" href="/stylesheets/new.css">
   {{/if}}
   {{#if userCSS}}
   <link rel="stylesheet" href="/stylesheets/user.css">
@@ -32,26 +35,50 @@
 
   <!--Navbar-->
   <nav class="navbar position-relative">
-    <a href="/" class="navbar-brand text-dark font-weight-bolder border-bottom border-dark">Buy Together</a>         {{!-- {{改：左上角的 Buy Together}} --}}
+    <a href="/" class="navbar-brand logo font-weight-bolder">Buy Together</a>         {{!-- {{改：左上角的 Buy Together}} --}}
 
     <ul class="navbar-nav d-flex flex-row">
 
       {{#if user}}
       <li class="nav-item">
         <a href="/posts/new" class="new-task-btn"><i class="fas fa-plus py-1"></i><span
-            class="ml-1 d-none d-md-inline">New Group</span></a>
+            class="ml-1 d-md-inline add-bar">New Group</span></a>
       </li>
-      <li class="nav-item ml-3">
+
+      <i class="nav-item">
+        <a href="/users/{{user.id}}" class="new-task-btn"><i class="fas fa-user-circle py-1"></i><span
+            class="ml-1 d-md-inline add-bar">{{user.name}}</span></a>                                             {{!-- {{改：Account 的 link}} --}}
+      </i>
+
+      <i class="nav-item">
+        <a href="/users/logout" class="log-out-btn"><i class="fas fa-sign-out-alt py-1"></i><span
+            class="ml-1 d-md-inline add-bar">Log out</span></a>
+      </i>
+
+
+      {{!--
+      {{<li class="nav-item ml-3">
         <a href="/users/logout" class="log-out-btn">Log out</a>
-      </li>
+      </li>}}
+      --}}
+
       {{else}}
       <li class="nav-item">
-        <a href="/posts/add" class="new-task-btn"><i class="fas fa-plus py-1"></i><span
-            class="ml-1 d-none d-md-inline">Ad</span></a>                                             {{!-- {{改：Ad 的 link}} --}}
+        <a href="/posts/ad" class="new-task-btn"><i class="fas fa-plus py-1"></i><span
+            class="ml-1 d-none d-md-inline add-bar">Ad</span></a>                                             {{!-- {{改：Ad 的 link}} --}}
       </li>
-      <li class="nav-item ml-3">
-        <a href="/users/login" class="log-out-btn">Login Now</a>
-      </li>
+      <i class="nav-item">
+        <a href="/users/login" class="log-out-btn"><i class="fas fa-sign-in-alt py-1"></i><span
+            class="ml-1 d-md-inline add-bar">Login</span></a>
+      </i>
+
+      {{!--
+      {{<li class="nav-item ml-3">
+        <a href="/users/login" class="log-out-btn">Login</a>
+      </li>}}
+      --}}
+
+
       {{/if}}     
     </ul>
   </nav>
