@@ -1,7 +1,10 @@
-<!--New todo-->
+<!-- New Ad -->
+
 <section id="display-container" class="position-relative rounded shadow">
   <div class="rounded" id="display-panel">
-    <h3 class="text-center pt-3 new-group">New Group</h3>
+
+    <!-- New Ad Header -->
+    <h3 class="text-center pt-3 new-ad">New Ad</h3>
     <!--Flash message-->
     {{> messages}}
 
@@ -12,141 +15,142 @@
       <!--Form-->
 
       <!--Title-->
-      <div class="form-group form-group-newcss mt-2">
-        <small class="tool-tip name-tip">Group Name</small>
-        <label for="title" class="sr-only">Group Name</label>
-        <input type="text" class="form-control form-control-newcss" id="title" name="title" placeholder="Create your group name" minlength="1"
+
+      <!-- Company Name -->
+      <div class="form-group form-ad mt-2">
+        <small class="tool-tip name-tip">Company Name</small>
+        <label for="title" class="sr-only">Company Name</label>
+        <input type="text" class="form-control form-control-newcss" id="title" name="title" placeholder="Your company's name" minlength="1"
           value="{{post.title}}" required>
         <div class="invalid-feedback">
-          Please fill in your group name!
+          Please fill in your company's name!
         </div>
       </div>
 
- 
+
       <div class="form-row form-row-newcss">
-        <!--category-->
-        <div class="col-md-4 col-sm-12 tool-tip-container animateField">
-          <small class="tool-tip date-tip">Category</small>
-          <label for="category" class="sr-only">Category</label>
-          <select class="form-control form-control-newcss" id="category" name="category">
-            <option value="food">Food</option>
-            <option value="supplies">Daily Supplies</option>
-            <option value="apparel">Apparel</option>
-            <option value="entertainment">Entertainment</option>
-            <option value="others">Others</option>
-          </select>
+
+        <!-- Comapny Address -->
+        <div class="col-md-6 col-sm-12">
+          <small class="tool-tip name-tip">Company Address</small>
+          <label for="title" class="sr-only">Company Address</label>
+          <input type="text" class="form-control form-control-newcss" id="title" name="title" placeholder="Your company's address" minlength="1"
+          value="{{post.title}}" required>
           <div class="invalid-feedback">
-            Please fill in!
+            Please fill in your company's address! If your company doesn't have an address, please type "/".
           </div>
         </div>
-
-        <!--Area-->
-        <div class="col-md-4 col-sm-12 tool-tip-container animateField">
-          <small class="tool-tip date-tip">Area</small>
-          <label for="category" class="sr-only">Area</label>
-          <select class="form-control form-control-newcss" id="category" name="category">
-            <option value="Taipei">Taipei</option>
-            <option value="Taoyuan">Taoyuan</option>
-            <option value="Hsinchu">Hsinchu</option>
-            <option value="Miaoli">Miaoli</option>
-            <option value="Taichung">Taichung</option>
-            <option value="Changhua">Changhua</option>
-            <option value="Nantou">Nantou</option>
-            <option value="Yunlin">Yunlin</option>
-            <option value="Chiayi">Chiayi</option>
-            <option value="Tainan">Tainan</option>
-            <option value="Kaohsiung">Kaohsiung</option>
-            <option value="Pingtung">Pingtung</option>
-            <option value="Yilan">Yilan</option>
-            <option value="Hualien">Hualien</option>
-            <option value="Taitung">Taitung</option>
-            <option value="Penghu">Penghu</option>
-            <option value="Green Island & Orchid Island">Green Island & Orchid Island</option>
-            <option value="Kinmen & Matsu">Kinmen & Matsu</option>
-          </select>
+        
+        <!-- Comapny Website -->
+        <div class="col-md-6 col-sm-12">
+          <small class="tool-tip name-tip">Comapny Website</small>
+          <label for="title" class="sr-only">Comapny Website</label>
+          <input type="text" class="form-control form-control-newcss" id="title" name="title" placeholder="Your company's website" minlength="1"
+          value="{{post.title}}" required>
           <div class="invalid-feedback">
-            Please fill in!
+            Please fill in your company's website! If your company doesn't have a website, please type "/".
           </div>
         </div>
-
-        <!--Due Date-->
-        <div class="col-md-4 col-sm-12 tool-tip-container animateField">
-          <small class="tool-tip date-tip">Due Date</small>
-          <label for="dueDate" class="sr-only">Due Date</label>
-          <input type="date" class="form-control form-control-newcss pr-1" id="dueDate" name="dueDate" value="{{post.dueDate}}"
-            min="2020-12-29" max="2025-12-31" required>
-          <div class="invalid-feedback">
-            When is due?
-          </div>
-        </div>
-
       </div>
 
       <br>
 
       <div class="form-row form-row-newcss">
 
-        <!-- Minimum Number of People -->
-        <div class="col-md-4 col-sm-12 tool-tip-container animateField">
-          <small class="tool-tip date-tip">Minimum Number of People</small>
-          <label for="numberOfPeople" class="sr-only">>Minimum Number of People</label>
-          <input type="number" class="form-control form-control-newcss pr-1" id="numberOfPeople" name="numberOfPeople"
-            value="{{post.numberOfPeople}}" required>
+        <!-- Contact Person -->
+        <div class="col-md-4 col-sm-12">
+          <small class="tool-tip name-tip">Contact Person</small>
+          <label for="title" class="sr-only">Contact Person</label>
+          <input type="text" class="form-control form-control-newcss" id="title" name="title" placeholder="Contact person's full name" minlength="1"
+          value="{{post.title}}" required>
           <div class="invalid-feedback">
-            Please fill in!
+            Please fill in contact person's full name!
           </div>
         </div>
 
-        <!-- Maximum Number of People -->
-        <div class="col-md-4 col-sm-12 tool-tip-container animateField">
-          <small class="tool-tip date-tip">Maximum Number of People</small>
-          <label for="numberOfPeople" class="sr-only">>Maximum Number of People</label>
-          <input type="number" class="form-control form-control-newcss pr-1" id="numberOfPeople" name="numberOfPeople"
-            value="{{post.numberOfPeople}}" required>
+        <!-- Phone -->
+        <div class="col-md-4 col-sm-12">
+          <small class="tool-tip name-tip">Phone</small>
+          <label for="title" class="sr-only">Phone</label>
+          <input type="text" class="form-control form-control-newcss" id="title" name="title" placeholder="Contact person's phone number" minlength="1"
+          value="{{post.title}}" required>
           <div class="invalid-feedback">
-            Please fill in!
+            Please fill in contact person's phone number!
           </div>
         </div>
 
-        <!-- Contact Info-->
-        <div class="col-md-4 col-sm-12 tool-tip-container animateField">
-          <small class="tool-tip date-tip">Contact Information</small>
-          <label for="category" class="sr-only">Contact Information</label>
-          <select class="form-control form-control-newcss" id="category" name="category">
-            <option value="phone">Phone</option>
-            <option value="mail">Email</option>
-          </select>
+        <!-- Email -->
+        <div class="col-md-4 col-sm-12">
+          <small class="tool-tip name-tip">Email</small>
+          <label for="title" class="sr-only">Email</label>
+          <input type="text" class="form-control form-control-newcss" id="title" name="title" placeholder="Contact person's email" minlength="1"
+          value="{{post.title}}" required>
           <div class="invalid-feedback">
-            Phone or email?
+            Please fill in contact person's email!
           </div>
         </div>
       </div>
-
-      <!--Content-->
-      <div class="form-group form-group-newcss mt-2">
-        <small class="tool-tip name-tip">Content</small>
-        <label for="content" class="sr-only">Content</label>
-        <textarea class="form-control form-control-newcss" name="content" id="content" rows="3" placeholder="Give some additional description here..."
-          maxlength="60">{{post.content}}</textarea>
-      </div>
-
-      <!--Status-->
-      <!--
-      <div class="btn-group btn-group-toggle mb-3 d-flex pt-1 tool-tip-container" data-toggle="buttons">
-        <small class="tool-tip status-tip">Current Status</small>
-        <label class="btn btn-sm btn-secondary {{#if todo.done}}active{{/if}}">
-          <input type="radio" name="status" id="done" value="done" autocomplete="off" {{#if
-            todo.done}}checked{{/if}}>Done
-        </label>
-        <label class="btn btn-sm btn-secondary {{#if todo.notDone}}active{{/if}}">
-          <input type="radio" name="status" id="notDone" value="notDone" autocomplete="off" {{#if
-            todo.notDone}}checked{{/if}}>Undone
-        </label>
-      </div>
-      -->
 
       <hr>
-      <button type="submit" class="btn btn-block todo-submit submit-newgroup-btn">Submit</button>
+
+      <!-- Ad Title -->
+      <div class="form-group form-ad mt-2">
+        <small class="tool-tip name-tip">Title of Advertisement</small>
+        <label for="title" class="sr-only">Title of Advertisement</label>
+        <input type="text" class="form-control form-control-newcss" id="title" name="title" placeholder="Title of your advertisement" minlength="1"
+          value="{{post.title}}" required>
+        <div class="invalid-feedback">
+          Please fill in your advertisement's title!
+        </div>
+      </div>
+
+
+
+
+ 
+      <div class="form-row form-row-newcss">
+
+        <!-- Advertising Plan -->
+        <div class="col-md-4 col-sm-12 tool-tip-container animateField">
+          <small class="tool-tip date-tip">Advertising Plan</small>
+          <label for="category" class="sr-only">Advertising Plan</label>
+          <select class="form-control form-control-newcss" id="category" name="category">
+            <option value="General">General</option>
+            <option value="Advanced">Advanced</option>
+          </select>
+          <div class="invalid-feedback">
+            Please choose one!
+          </div>
+        </div>
+
+        <!-- Days to Advertise -->
+        <div class="col-md-4 col-sm-12 tool-tip-container animateField">
+          <small class="tool-tip date-tip">Days to Advertise</small>
+          <label for="category" class="sr-only">Days to Advertise</label>
+          <select class="form-control form-control-newcss" id="category" name="category">
+            <option value="7">7 days</option>
+            <option value="15">15 days</option>
+            <option value="30">30 days</option>
+          </select>
+          <div class="invalid-feedback">
+            Please choose one!
+          </div>
+        </div>
+
+        <!-- Begin Date -->
+        <div class="col-md-4 col-sm-12 tool-tip-container animateField">
+          <small class="tool-tip date-tip">Date Begin</small>
+          <label for="dueDate" class="sr-only">Date Begin</label>
+          <input type="date" class="form-control form-control-newcss pr-1" id="dueDate" name="dueDate" value="{{post.dueDate}}"
+            min="2020-12-29" max="2025-12-31" required>
+          <div class="invalid-feedback">
+            When to begin?
+          </div>
+        </div>
+      </div>
+
+      <hr>
+      <button type="submit" class="btn btn-block todo-submit submit-newAd-btn">Submit</button>
     </form>
   </div>
 </section>
