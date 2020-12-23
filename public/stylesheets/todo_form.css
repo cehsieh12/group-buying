@@ -1,6 +1,6 @@
 form {
-  min-height:195px;
-  background: rgba(176,176,176, .6);
+  min-height: 195px;
+  background: rgba(176, 176, 176, .6);
   border-radius: 5px;
   padding: 0 5px 10px 5px;
   margin-bottom: 10px;
@@ -31,9 +31,9 @@ form .form-control:hover {
   text-align: center;
   padding: 2px 0;
   border-radius: 5px;
-  visibility: hidden; 
+  visibility: hidden;
   /*Fade in affect*/
-  opacity: 0; 
+  opacity: 0;
   transition: opacity .3s;
   z-index: 1;
 }
@@ -73,27 +73,27 @@ form .form-control:hover {
   visibility: visible;
 }
 
-.was-validated .form-control:invalid, 
+.was-validated .form-control:invalid,
 .form-control.is-invalid {
   background-image: none;
 }
 
-.was-validated .form-control:invalid:focus, 
+.was-validated .form-control:invalid:focus,
 .form-control.is-invalid:focus {
   box-shadow: none;
 }
 
-.was-validated .form-control:valid, 
+.was-validated .form-control:valid,
 .form-control.is-valid {
   background-image: none;
 }
 
-.was-validated .form-control:valid:focus, 
+.was-validated .form-control:valid:focus,
 .form-control.is-valid:focus {
   box-shadow: none;
 }
 
-.todo-submit {
+.new-submit {
   background: #265077;
   padding: 8px 12px;
   text-decoration: none;
@@ -101,8 +101,7 @@ form .form-control:hover {
   border-color: transparent;
 }
 
-.todo-submit:hover {
+.new-submit:hover {
   background: #1E4258;
   color: white;
 }
-

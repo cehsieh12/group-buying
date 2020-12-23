@@ -1,5 +1,5 @@
 const db = require('../models')
-const moment = require('moment-timezone');
+const moment = require ('moment');
 const User = db.User
 const Group = db.Group
 // Include date converter
@@ -10,10 +10,13 @@ module.exports = {
     Group.findAll({
       where: {
         deadline:{
-          [Op.gt]: moment().tz("Asia/Taipei").format('YYYY-MM-DD')
+          [Op.gte]: moment().tz('Asia/Taipei').format()
+        },
+        number:{
+          [Op.ne]: db.sequelize.col('maxNum')
         }
       },
-      order: [['deadline', 'DESC']]
+      order: [['deadline', 'ASC']]
     })
       .then(groups => {
         // Filter option for all unique date

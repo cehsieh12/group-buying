@@ -1,4 +1,4 @@
-<meta name="csrf-token" content="{{csrfToken}}">
+<input type="hidden" id="_csrf" name="_csrf" value="{{csrfToken}}">
 <!--Detail Page-->
 <section id="display-container" class="position-relative rounded shadow">
   <div class="rounded" id="display-panel">
@@ -10,7 +10,7 @@
         <span class="badge badge-danger">{{#if group.number }}{{group.number}}{{else}}0{{/if}}人/{{group.maxNum}}人</span>
         {{#if isFull}}
         <button type="button" id="group-list-btn" data-toggle="modal" data-target="#list{{group.id}}"
-          group-id="{{group.id}}">
+          group-id="{{group.id}}" initiator-id="{{group.initiatorId}}">
           <span class="badge badge-success">Group List</span>
         </button>
         {{/if}}
@@ -24,6 +24,7 @@
       <p class="p-0 m-0 pt-2">{{product.p_name}}</p>
       <p class="p-0 m-0 pt-2">{{product.price}}元</p>
       <p class="p-0 m-0 pt-2">{{group.attr}}</p>
+      <p class="p-0 m-0 pt-2">{{group.content}}</p>
 
       <div class="detail-buttons d-flex justify-content-end pb-1">
         {{#if isInitiator }}
@@ -124,11 +125,22 @@
             </div>
             <div class="modal-body">
               <h5 class="p-0 m-0">Group Name: {{group.name}}</h5>
-              <table>
+              <p id="initiator-data"></p>
+              <table class="table table-bordered table-hover" id="list-table">
+                <thead>
+                  <tr class="table-info">
+                    <th scope="col">First Name</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Email</th>
+                  </tr>
+                </thead>
+                <tbody id="list-table-body">
 
+                </tbody>
+                <tfoot>
 
+                </tfoot>
               </table>
-              <p id="test"></p>
             </div>
             <div class="modal-footer join-model-btns border-0 pt-1">
               <button type="button" id="join-model-back" data-dismiss="modal">Go back</button>
@@ -144,17 +156,30 @@
 
   $('#group-list-btn').click(function () {
     var groupId = $(this).attr("group-id");
-    /*
+    var initiatorId = $(this).attr("initiator-id");
     $.ajax({
       url: '/groups/list/' + groupId,
       type: 'POST',
       cache: false,
-      data: { groupId: groupId },
+      data: {
+        'groupId': groupId,
+        'initiatorId': initiatorId,
+        '_csrf': $('#_csrf').val()
+      },
       success: function (data) {
-        console.log(data);
-        $("#test").html(data);
+        var initiatorData = data.initiator;
+        $("#initiator-data").html(`Initiator:${initiatorData.Fname}/${initiatorData.phone}/${initiatorData.email}`);
+        var users = data.users;
+        users.forEach(function (user) {
+          var template = `<tr>
+                    <td>${user.Fname}</td>
+                    <td>${user.phone}</td>
+                    <td>${user.email}</td>
+                  </tr>`;
+          $("#list-table-body").append(template);
+        })
       }
     })
-  */
+
   });
 </script>

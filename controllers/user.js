@@ -21,7 +21,7 @@ module.exports = {
         userCSS: true,
         formValidation: true,
         warning: errors.array(),
-        todoData: { Fname, Lname, address, phone, Birth, email, gender, password, password2}
+        registerData: { Fname, Lname, address, phone, Birth, email, gender, password, password2}
       })
     }
     // validation passed
@@ -29,7 +29,7 @@ module.exports = {
       .then(async (user) => {
         if (user) {
           console.log('User already exists')
-          res.render('register', { todoData: { Fname, Lname, address, phone, Birth, email, gender, password, password2} })
+          res.render('register', { registerData: { Fname, Lname, address, phone, Birth, email, gender, password, password2} })
         } else {
           try {
             //create hashed password
@@ -50,7 +50,7 @@ module.exports = {
             })
             newUser
               .save()
-              .then(user => res.redirect('/'))
+              .then(user => res.redirect('/users/login'))
               .catch(err => console.log(err))
           } catch (error) {
             console.log(error)

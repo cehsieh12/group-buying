@@ -1,58 +1,96 @@
-// // Include models
-// const db = require('../models')
-// const Todo = db.Todo
-// // Include date converter
-// const { convertDate } = require('../date-converter')
-// // Include sequelize operator
-// const Op = require('sequelize').Op
+// Include models
+const db = require('../models')
+const Group = db.Group
+// Include date converter
+const { convertDate } = require('../date-converter')
+const moment = require ('moment');
 
-// module.exports = {
-//   getSearch: (req, res) => {
-//     // retrieve data user selected
-//     const selectedSort = req.query.sort || req.query.preSort
-//     const selectedStatus = req.query.doneReset ? null : req.query.done || req.query.preDone
-//     const selectedDueDate = req.query.dateReset ? null : req.query.date || req.query.preDate
-//     // get criteria
-//     const sort = selectedSort === 'Name' ? 'name'
-//       : selectedSort === 'Status' ? 'done'
-//         : 'dueDate'
-//     const status = selectedStatus === 'Done' ? true
-//       : selectedStatus === 'Undone' ? false
-//         : ''
-//     const dueDate = selectedDueDate ? { [Op.eq]: new Date(selectedDueDate) } : { [Op.gte]: new Date('2019-01-01') }
+// Include sequelize operator
+const Op = require('sequelize').Op
 
-//     // Filter option for all unique date
-//     const dateOptions = []
-
-//     Todo.findAll({
-//       attributes: ['dueDate'],
-//       where: { UserId: req.user.id },
-//       group: ['dueDate'],
-//       order: [['dueDate', 'DESC']]
-//     })
-//       .then(allDate => {
-//         allDate.forEach(date => dateOptions.push(convertDate(date.dataValues.dueDate)))
-//         return Todo.findAll({
-//           where: {
-//             UserId: req.user.id,
-//             done: { [Op.or]: [status][0] === '' ? [true, false] : [status] },
-//             dueDate
-//           },
-//           order: [[sort, 'DESC']]
-//         })
-//       })
-//       .then(todos => {
-//         // convert all displayed date
-//         todos.forEach(todo => { todo.dataValues.dueDate = convertDate(todo.dataValues.dueDate) })
-//         return res.render('index', {
-//           todos,
-//           indexCSS: true,
-//           dateOptions,
-//           noTask: todos.length === 0,
-//           hasAnimation: true,
-//           filter: { sort: selectedSort, status: selectedStatus, dueDate: selectedDueDate }
-//         })
-//       })
-//       .catch(error => res.status(422).json(error))
-//   }
-// }
+module.exports = {
+    getSearchArea:(req,res)=>{
+        const area = req.query.area;
+        Group.findAll({
+            where: {
+                addr: area,
+                deadline:{
+                    [Op.gt]: moment().tz('Asia/Taipei').format()
+                }
+            },
+            order: [['deadline', 'ASC']]
+          })
+            .then(groups => {
+              // Filter option for all unique date
+              const dateOptions = []
+              groups.forEach(group => {
+                // convert date
+                const convertedDate = convertDate(group.dataValues.deadline)
+                // Add unique date to date filter
+                if (!dateOptions.includes(convertedDate)) { dateOptions.push(convertedDate) }
+                // convert all displayed date
+                group.dataValues.deadline = convertedDate
+              })
+              res.render('index', { groups, indexCSS: true, dateOptions, noPost: groups.length === 0, hasAnimation: true, helpers: {
+                progressBar: function (current,max) { return ((current/max)*100).toFixed(1); }
+            } })
+            })
+            .catch(error => res.status(422).json(error))
+    },
+    getSearchDate:(req,res)=>{
+        let date = req.query.date;
+        date = date === 'Furthest date'? 'DESC':'ASC';
+        Group.findAll({
+            where: {
+                deadline:{
+                    [Op.gt]: moment().tz('Asia/Taipei').format()
+                }
+            },
+            order: [['deadline', date]]
+          })
+            .then(groups => {
+              // Filter option for all unique date
+              const dateOptions = []
+              groups.forEach(group => {
+                // convert date
+                const convertedDate = convertDate(group.dataValues.deadline)
+                // Add unique date to date filter
+                if (!dateOptions.includes(convertedDate)) { dateOptions.push(convertedDate) }
+                // convert all displayed date
+                group.dataValues.deadline = convertedDate
+              })
+              res.render('index', { groups, indexCSS: true, dateOptions, noPost: groups.length === 0, hasAnimation: true, helpers: {
+                progressBar: function (current,max) { return ((current/max)*100).toFixed(1); }
+            } })
+            })
+            .catch(error => res.status(422).json(error))
+    },
+    getSearchCategory:(req,res)=>{
+        const category = req.query.category;
+        Group.findAll({
+            where: {
+                category: category,
+                deadline:{
+                    [Op.gt]: moment().tz('Asia/Taipei').format()
+                }
+            },
+            order: [['deadline', 'ASC']]
+          })
+            .then(groups => {
+              // Filter option for all unique date
+              const dateOptions = []
+              groups.forEach(group => {
+                // convert date
+                const convertedDate = convertDate(group.dataValues.deadline)
+                // Add unique date to date filter
+                if (!dateOptions.includes(convertedDate)) { dateOptions.push(convertedDate) }
+                // convert all displayed date
+                group.dataValues.deadline = convertedDate
+              })
+              res.render('index', { groups, indexCSS: true, dateOptions, noPost: groups.length === 0, hasAnimation: true, helpers: {
+                progressBar: function (current,max) { return ((current/max)*100).toFixed(1); }
+            } })
+            })
+            .catch(error => res.status(422).json(error))
+    }
+}

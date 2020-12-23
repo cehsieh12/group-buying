@@ -12,7 +12,7 @@ const userRoutes = require('./routes/user')
 const groupRoutes = require('./routes/group')
 const homeRoutes = require('./routes/home')
 const authRoutes = require('./routes/auth')
-// const searchRoutes = require('./routes/search')
+const searchRoutes = require('./routes/search')
 const passport = require('passport')
 const session = require('express-session')
 const errorController = require('./controllers/error')
@@ -70,7 +70,7 @@ app.use('/users', userRoutes)
 
 app.use('/auth', authRoutes)
 
-// app.use('/search', searchRoutes)
+app.use('/search', searchRoutes)
 
 app.use('/', homeRoutes)
 

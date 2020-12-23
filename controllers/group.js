@@ -8,8 +8,7 @@ const Product = db.Product
 
 // Include date converter
 const { convertDate } = require('../date-converter')
-const join = require('../models/join')
-const { userRegister } = require('./user')
+const { QueryTypes } = require('sequelize');
 
 module.exports = {
   getViewAllGroup: (req, res) => {
@@ -36,8 +35,6 @@ module.exports = {
         group: { name, minNum, maxNum, deadline, addr, contactInfo, content, p_name, category, price }
       })
     }
-
-    // pass validation
     // 新增產品後取得p_id再新增group
     Product.create({
       p_name,
@@ -63,10 +60,6 @@ module.exports = {
    
   },
   getViewOneGroup:(req, res)=>{  
-    // 如果有加入 顯示退出按鈕
-    // 否則顯示加入按鈕
-    // 如果為主揪，顯示刪除
-    // 如果滿人不可加入
     var isJoined = true;
 
     const asyncFindJoin = async()=>{
@@ -169,8 +162,22 @@ module.exports = {
       .catch(error => res.status(422).json(error))
   },
   getGroupList:(req,res)=>{
-    const {groupId} = req.body
-    res.json(groupId);
-    console.log(groupId);
+    const {groupId,initiatorId} = req.body
+    const asyncFindUsers = async()=>{
+      let users = await db.sequelize.query(`SELECT Fname, Lname, phone, email FROM Users Where id IN (Select C_id FROM Joins Where G_id = ${groupId})`, { type: QueryTypes.SELECT });
+      return users;
+    }
+    const asyncFindInitiator = async()=>{
+      let initiator = await User.findOne({attributes: ['Fname', 'Lname', 'phone', 'email'],where:{id:initiatorId}})
+      return initiator.toJSON();
+    }
+    Promise.all([asyncFindUsers(), asyncFindInitiator()]).then(values => {
+      var data = {
+        initiator:values[1],
+        users:values[0]
+      }
+      res.json(data);
+    });
+    
   }
 }
