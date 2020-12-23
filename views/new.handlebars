@@ -19,8 +19,8 @@
         </div>
       </div>
       <div class="form-row form-row-newcss">
-        <!--category-->
-        <div class="col-md-4 col-sm-12 tool-tip-container animateField">
+        <!-- Category -->
+        <div class="col-md-4 col-sm-12">
           <small class="tool-tip date-tip">Category</small>
           <label for="category" class="sr-only">Category</label>
           <select class="form-control form-control-newcss" id="category" name="category">
@@ -35,8 +35,8 @@
           </div>
         </div>
 
-        <!--Area-->
-        <div class="col-md-4 col-sm-12 tool-tip-container animateField">
+        <!-- Area -->
+        <div class="col-md-4 col-sm-12">
           <small class="tool-tip date-tip">Area</small>
           <label for="addr" class="sr-only">Area</label>
           <select class="form-control form-control-newcss" id="addr" name="addr">
@@ -65,7 +65,7 @@
         </div>
 
         <!--Due Date-->
-        <div class="col-md-4 col-sm-12 tool-tip-container animateField">
+        <div class="col-md-4 col-sm-12">
           <small class="tool-tip date-tip">Due Date</small>
           <label for="deadline" class="sr-only">Due Date</label>
           <input type="date" class="form-control form-control-newcss pr-1" id="deadline" name="deadline"
@@ -75,10 +75,12 @@
           </div>
         </div>
       </div>
+
       <br>
+
       <div class="form-row form-row-newcss">
         <!-- Minimum Number of People -->
-        <div class="col-md-4 col-sm-12 tool-tip-container animateField">
+        <div class="col-md-4 col-sm-12">
           <small class="tool-tip date-tip">Minimum Number of People</small>
           <label for="minNum" class="sr-only">>Minimum Number of People</label>
           <input type="number" class="form-control form-control-newcss pr-1" id="minNum" name="minNum"
@@ -87,8 +89,9 @@
             Please fill in!
           </div>
         </div>
+
         <!-- Maximum Number of People -->
-        <div class="col-md-4 col-sm-12 tool-tip-container animateField">
+        <div class="col-md-4 col-sm-12">
           <small class="tool-tip date-tip">Maximum Number of People</small>
           <label for="maxNum" class="sr-only">>Maximum Number of People</label>
           <input type="number" class="form-control form-control-newcss pr-1" id="maxNum" name="maxNum"
@@ -97,8 +100,9 @@
             Please fill in!
           </div>
         </div>
+
         <!-- Contact Info-->
-        <div class="col-md-4 col-sm-12 tool-tip-container animateField">
+        <div class="col-md-4 col-sm-12">
           <small class="tool-tip date-tip">Contact Information</small>
           <label for="contactInfo" class="sr-only">Contact Information</label>
           <select class="form-control form-control-newcss" id="contactInfo" name="contactInfo">
@@ -110,21 +114,34 @@
           </div>
         </div>
       </div>
+
+      <br>
+
       <div class="form-row form-row-newcss">
-        <!--product name-->
-        <div class="col-md-6 col-sm-12 tool-tip-container animateField">
-          <small class="tool-tip name-tip">product name</small>
-          <label for="p_name" class="sr-only">product name</label>
+        <!-- Product Name -->
+        <div class="col-md-6 col-sm-12">
+          <small class="tool-tip name-tip">Product Name</small>
+          <label for="p_name" class="sr-only">Product Name</label>
           <input type="text" class="form-control" id="p_name" name="p_name" minlength="1" value="{{group.p_name}}"
             required>
+          <div class="invalid-feedback">
+            Please fill in!
+          </div>
         </div>
-        <!--product price-->
-        <div class="col-md-6 col-sm-12 tool-tip-container animateField">
-          <small class="tool-tip name-tip">Product price</small>
-          <label for="price" class="sr-only">Product price</label>
+
+        <!-- Product Price -->
+        <div class="col-md-6 col-sm-12">
+          <small class="tool-tip name-tip">Product Price</small>
+          <label for="price" class="sr-only">Product Price</label>
           <input type="number" class="form-control" id="price" name="price" value="{{group.price}}" required>
+          <div class="invalid-feedback">
+            Please fill in!
+          </div>
         </div>
       </div>
+
+      <br>
+      
       <!--Content-->
       <div class="form-group form-group-newcss mt-2">
         <small class="tool-tip name-tip">Content</small>
