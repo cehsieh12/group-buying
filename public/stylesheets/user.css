@@ -1,5 +1,17 @@
+/* Colors */
+:root {
+  /* Login */
+  --mailpswd: rgb(173, 173, 173);                 /* gray */
+  --mailpswdbordermouse: rgb(151, 151, 151);      /* darker gray */
+  --loginbtn: #f79102;                            /* orange */
+  --loginbtnword: #FFFFFF;                        /* white */
+  --registerbtn: #8b8b8b;                         /* gray */
+  --registermouse: #f79102;                       /* orange */
+}
+
+
 .card {
-  background-color: rgba(255,255,255,.9);
+  background-color: rgba(255,255,255,.8);   /* white */
   max-width: 420px;
 }
 
@@ -7,18 +19,37 @@
   display: block;
   content: "";
   height: 7px;
-  background: linear-gradient(90deg, rgba(49,48,54,1) 0%, rgba(103,103,103,1) 0%, rgba(199,197,197,1) 100%);;
+  background: linear-gradient(90deg, #965801 0%, #f79102 30%, #fec371 100%);;
   border-radius: .25rem .25rem 0 0;
 }
 
-form .form-input i {
-  color: rgb(173, 173, 173);
+
+/* (Add) Login */
+.login-text-new {
+  color: var(--loginbtn);
+  text-shadow: 0 1px 0 var(--registerbtn);
 }
 
+/* (Add) Login */
+.form-contorl-user {
+  background-color: white;
+}
+
+.form-contorl-user:focus {
+  background-color: #fff6ee;
+}
+
+
+/* Email & Password icon */
+form .form-input i {
+  color: var(--mailpswd);    
+}
+
+/* Email & Password border when mouse moved to it */
 form .form-control:focus,
 form .form-control:hover {
   box-shadow: none;
-  border-color: rgb(151, 151, 151);
+  border-color: var(--mailpswdbordermouse);
 }
 
 .was-validated .form-control:invalid, 
@@ -41,20 +72,22 @@ form .form-control:hover {
   box-shadow: none;
 }
 
+/* Email & Password word */
+
 /* Chrome, Firefox, Opera, Safari 10.1+ */
 .form-control::placeholder { 
-  color: rgb(173, 173, 173);
+  color: var(--mailpswd); 
   opacity: 1; /* Firefox */
 }
 
 /* Internet Explorer 10-11 */
 .form-control:-ms-input-placeholder { 
-  color: rgb(173, 173, 173);
+  color: var(--mailpswd);
 }
 
 /* Microsoft Edge */
 .form-control::-ms-input-placeholder { 
-  color: rgb(173, 173, 173);
+  color: var(--mailpswd);
 }
 
 form .form-input i {
@@ -67,11 +100,12 @@ form .form-input input {
   padding-left: 30px;
 }
 
+/* Login button word */
 .user-form-btn {
   padding: 6px 12px;
   border-radius: 5px;
   text-decoration: none;
-  color: #FFFFFF;
+  color: var(--loginbtnword);
   border-color: transparent;
 }
 
@@ -81,6 +115,7 @@ form .form-input input {
   box-shadow: 1px 1px 6px -1px rgba(71,71,71,1);
 }
 
+/* Still don't know */
 .btn-facebook-blue {
   background: #3b5998;
 }
@@ -90,8 +125,9 @@ form .form-input input {
   text-decoration: none;
 }
 
+/* Login orange button */
 .btn-orange {
-  background: #F79102;
+  background: var(--loginbtn);
 }
 
 .separate-line small {
@@ -103,16 +139,19 @@ form .form-input input {
   font-size: 1rem;
 }
 
+/* Register */
 .login-signup-btn {
   padding: 2px 0;
   border-radius: 30px;
   text-decoration: none;
-  color: #8b8b8b;
-  border: 1px solid #8b8b8b;
+  color: var(--registerbtn); 
+  border: 1px solid var(--registerbtn);
 }
 
+/* Register mouse moved to it */
 .login-signup-btn:hover {
   text-decoration: none;
-  border-color: #727070;
-  color: #727070;
+  border-color: var(--registermouse);
+  color: var(--registermouse);
 }
+

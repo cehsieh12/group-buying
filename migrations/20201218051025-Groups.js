@@ -44,6 +44,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      content: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       pid:{
         type: Sequelize.INTEGER,
         allowNull: false,

@@ -1,7 +1,7 @@
 <!-- ./views/register.handlebars -->
 <div class="card card-body shadow text-dark mt-5 mx-auto p-0 border-0 animated 	bounceIn">
-  <h1 class="text-center my-4">
-    Register
+  <h1 class="text-center my-4 login-text-new">
+    Register now!
   </h1>
   <!--Flash message-->
   {{> messages}}
@@ -10,49 +10,140 @@
     <!--CSRF token-->
     <input type="hidden" name="_csrf" value="{{csrfToken}}">
     <!--Form-->
-    <div class="form-group form-input position-relative animateField">
+
+    {{!-- 
+    {{<div class="form-group form-input position-relative animateField">
       <i class="fas fa-signature"></i>
-      <label for="name" class="sr-only">Name</label>
-      <input type="name" id="name" name="name" class="form-control" placeholder="Name" minlength="1" maxlength="10"
+      <label for="id" class="sr-only">Create your ID</label>
+      <input type="id" id="id" name="id" class="form-control form-contorl-user" placeholder="Create your ID" minlength="1" maxlength="10"
         value="{{{todoData.name}}}" required />
       <div class="valid-feedback">
-        Ready to do!
+        Ready!
       </div>
       <div class="invalid-feedback">
-        Please fill in a name!
+        Please create your ID!
+      </div>
+    </div>}} 
+    --}}
+
+    <div class="form-group form-input position-relative animateField">
+      <i class="fas fa-signature"></i>
+      <label for="fname" class="sr-only">First Name</label>
+      <input type="text" id="fname" name="Fname" class="form-control form-contorl-user" placeholder="First Name" minlength="1" maxlength="10"
+        value="{{{todoData.Fname}}}" required />
+      <div class="valid-feedback">
+        Ready!
+      </div>
+      <div class="invalid-feedback">
+        Please fill in your first name!
       </div>
     </div>
+
+    <div class="form-group form-input position-relative animateField">
+      <i class="fas fa-signature"></i>
+      <label for="Lname" class="sr-only">Last Name</label>
+      <input type="text" id="Lname" name="Lname" class="form-control form-contorl-user" placeholder="Last Name" minlength="1" maxlength="10"
+        value="{{{todoData.Lname}}}" required />
+      <div class="valid-feedback">
+        Ready!
+      </div>
+      <div class="invalid-feedback">
+        Please fill in your last name!
+      </div>
+    </div>
+
+    <div class="form-group form-input position-relative animateField">
+      <i class="fas fa-map-marker-alt"></i>
+      <label for="Address" class="sr-only">Address</label>
+      <input type="text" id="Address" name="Address" class="form-control" placeholder="Address" 
+        value="{{{todoData.Address}}}" required />
+      <div class="valid-feedback">
+        Ready!
+      </div>
+      <div class="invalid-feedback">
+        Please fill in your Address!
+      </div>
+    </div>
+
+
+
+
+    <div class="form-group form-input position-relative animateField">
+      <i class="fas fa-phone"></i>
+      <label for="phone" class="sr-only">Phone Number</label>
+      <input type="text" id="phone" name="phone" class="form-control form-contorl-user" placeholder="Phone Number" minlength="8" maxlength="10"
+        value="{{{todoData.phone}}}" required />
+      <div class="valid-feedback">
+        Ready!
+      </div>
+      <div class="invalid-feedback">
+        Please fill in your phone number!
+      </div>
+    </div>
+
     <div class="form-group form-input position-relative animateField">
       <i class="far fa-envelope"></i>
       <label for="email" class="sr-only">Email</label>
-      <input type="email" id="email" name="email" class="form-control" placeholder="Email" value="{{{todoData.email}}}"
+      <input type="text" id="email" name="email" class="form-control form-contorl-user" placeholder="Email" value="{{{todoData.email}}}"
         required />
       <div class="valid-feedback">
-        Ready to do!
+        Ready!
       </div>
       <div class="invalid-feedback">
         Please fill in a valid email!
       </div>
     </div>
+
+
+
+    <div class="form-group form-input position-relative animateField">
+      <i class="fas fa-birthday-cake"></i>
+      <label for="Birth" class="sr-only">Birth</label>
+      <input type="text" id="Birth" name="Birth" class="form-control" placeholder="Birth (xxxx/xx/xx)" value="{{{todoData.Birth}}}"
+        required />
+      <div class="valid-feedback">
+        Ready!
+      </div>
+      <div class="invalid-feedback">
+        Please fill in a your Birth!
+      </div>
+    </div>
+
+     <div class="form-group form-input position-relative animateField">
+
+      <i class="fas fa-venus-mars"></i>
+      <label for="gender" class="sr-only">Gender</label>
+      <input type="text" id="gender" name="gender" class="form-control" placeholder="Gender (M/F/X)" value="{{{todoData.Birth}}}"
+        required />
+      <div class="valid-feedback">
+        Ready!
+      </div>
+      <div class="invalid-feedback">
+        Please fill in a your Gender!
+      </div>
+    </div>
+
+
     <div class="form-group form-input position-relative animateField">
       <i class="fas fa-lock"></i>
       <label for="password" class="sr-only">Password</label>
-      <input type="password" id="password" name="password" class="form-control" placeholder="Password"
+      <input type="password" id="password" name="password" class="form-control form-contorl-user" placeholder="Password"
         value="{{{todoData.password}}}" pattern="\S{8,12}" minlength="8" maxlength="12" required />
       <div class="valid-feedback">
-        Ready to do!
+        Ready!
       </div>
       <div class="invalid-feedback">
         Password length must be between 8-12!
       </div>
     </div>
+
     <div class="form-group form-input position-relative animateField">
       <i class="fas fa-lock"></i>
       <label for="password2" class="sr-only">Confirm Password</label>
-      <input type="password" id="password2" name="password2" class="form-control" placeholder="Confirm Password"
+      <input type="password" id="password2" name="password2" class="form-control form-contorl-user" placeholder="Confirm Password"
         value="{{{todoData.password2}}}" pattern="\S{8,12}" minlength="8" maxlength="12" required />
       <div class="valid-feedback">
-        Ready to do!
+        Ready!
       </div>
       <div class="invalid-feedback">
         Password doesn't match!

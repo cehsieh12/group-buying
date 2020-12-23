@@ -12,6 +12,12 @@
   {{#if indexCSS}}
   <link rel="stylesheet" href="/stylesheets/index.css">
   {{/if}}
+  {{#if postFormCSS}}
+  <link rel="stylesheet" href="/stylesheets/new.css">
+  {{/if}}
+  {{#if adCSS}}
+  <link rel="stylesheet" href="/stylesheets/ad.css"> <!-- ad -->
+  {{/if}}
   {{#if userCSS}}
   <link rel="stylesheet" href="/stylesheets/user.css">
   {{/if}}
@@ -31,30 +37,48 @@
   <div class="overlay"></div>
 
   <!--Navbar-->
+
   <nav class="navbar position-relative">
-    <a href="/" class="navbar-brand text-dark font-weight-bolder border-bottom border-dark">Group buying</a>
+    <a href="/" class="navbar-brand logo font-weight-bolder">Buy Together</a>
 
     <ul class="navbar-nav d-flex flex-row">
+
+      <!-- 有登入 -->
       {{#if user}}
+
+      <!-- New Group -->
       <li class="nav-item">
         <a href="/groups/new" class="new-task-btn"><i class="fas fa-plus py-1"></i><span
-            class="ml-1 d-none d-md-inline">New
-            Post</span></a>
+            class="ml-1 d-md-inline add-bar">New Group</span></a>
       </li>
-      {{/if}}
-      {{#if user}}
-      <li class="nav-item ml-3">
-        <a href="/users/logout" class="log-out-btn">Log out</a>
-      </li>
-      <li>
-        <a href="/users/{{user.id}}" class="mx-3">
-          {{user.name}}
-        </a>
-      </li>
+
+      <!-- Account (user.Fname) -->
+      <i class="nav-item">
+        <a href="/users/{{user.id}}" class="new-task-btn"><i class="fas fa-user-circle py-1"></i><span
+            class="ml-1 d-md-inline add-bar">{{user.Fname}}</span></a> {{!-- {{改：Account 的 link}} --}}
+      </i>
+
+      <!-- Log out -->
+      <i class="nav-item">
+        <a href="/users/logout" class="log-out-btn"><i class="fas fa-sign-out-alt py-1"></i><span
+            class="ml-1 d-md-inline add-bar">Log out</span></a>
+      </i>
+
+      <!-- 未登入 -->
       {{else}}
-      <li class="nav-item ml-3">
-        <a href="/users/login" class="log-out-btn">Login Now</a>
+
+      <!-- Ad -->
+      <li class="nav-item">
+        <a href="/groups/ad" class="new-task-btn"><i class="fas fa-plus py-1"></i><span
+            class="ml-1 d-none d-md-inline add-bar">Ad</span></a>
+
+        <!-- Login -->
       </li>
+      <i class="nav-item">
+        <a href="/users/login" class="log-out-btn"><i class="fas fa-sign-in-alt py-1"></i><span
+            class="ml-1 d-md-inline add-bar">Login</span></a>
+      </i>
+
       {{/if}}
     </ul>
   </nav>

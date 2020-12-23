@@ -22,10 +22,14 @@ module.exports = {
       .isAfter(new Date().toDateString())
       .withMessage('DeadLine Date should be after today!')
   ],
+
   registerUser: [
-    body('name')
-      .isLength({ min: 1, max: 10 })
-      .withMessage('Name is required, max 10 letters'),
+    // body('Fname')
+    //   .isLength({ min: 1, max: 10 })
+    //   .withMessage('First Name is required, max 10 letters'),
+    // body('Lname')
+    //   .isLength({ min: 1, max: 10 })
+    //   .withMessage('Last Name is required, max 10 letters'),
     body('email')
       .isEmail()
       .withMessage('Please provide a valid email'),

@@ -9,7 +9,9 @@ const { isAuthenticated } = require('../config/auth')
 // Include Controller
 const groupController = require('../controllers/group')
 
-// router.get('/', isAuthenticated, groupController.getViewAllGroup)
+router.get('/', isAuthenticated, groupController.getViewAllGroup)
+// advertisement
+router.get('/ad', groupController.getNewAd)
 
 // create new post
 router.get('/new', isAuthenticated, groupController.getNewPage)

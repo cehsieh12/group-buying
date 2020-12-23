@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     deadline: DataTypes.DATE,
     addr: DataTypes.STRING,
     contactInfo: DataTypes.STRING,
+    content: DataTypes.STRING,
     pid: DataTypes.INTEGER,
     initiatorId:DataTypes.INTEGER,
   },{});

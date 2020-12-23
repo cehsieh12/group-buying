@@ -14,13 +14,17 @@ const { userRegister } = require('./user')
 module.exports = {
   getViewAllGroup: (req, res) => {
     res.redirect('/')
+  },  
+  // advertisement
+  getNewAd:(req,res) =>{
+    res.render('ad', { adCSS: true, formValidation: true })
   },
   getNewPage: (req, res) => {
     res.render('new', { postFormCSS: true, formValidation: true })
   },
   postNewGroup: (req, res) => {
     // keep user input
-    const { name, minNum, maxNum, deadline, addr, contactInfo, p_name, category, price } = req.body
+    const { name, minNum, maxNum, deadline, addr, contactInfo,content, p_name, category, price } = req.body
     // retrieve error message from express-validator
     const errors = validationResult(req)
     // one or more error messages exist
@@ -29,7 +33,7 @@ module.exports = {
         postFormCSS: true,
         formValidation: true,
         warning: errors.array(),
-        group: { name, minNum, maxNum, deadline, addr, contactInfo, p_name, category, price }
+        group: { name, minNum, maxNum, deadline, addr, contactInfo, content, p_name, category, price }
       })
     }
 
@@ -41,14 +45,15 @@ module.exports = {
       price
     }).then(function(newRecord){
       Group.create({
-        name,
-        minNum,
-        maxNum,
-        category,
+        name:name,
+        minNum:minNum,
+        maxNum:maxNum,
+        category:category,
+        content:content,
         number:0,
-        deadline, 
-        addr, 
-        contactInfo, 
+        deadline:deadline, 
+        addr:addr, 
+        contactInfo:contactInfo, 
         pid:newRecord.id,
         initiatorId: req.user.id,
       })

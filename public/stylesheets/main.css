@@ -1,9 +1,23 @@
+:root{
+  --navbar: #505050;                      /* gray */
+  --groupspanel: rgba(216, 242, 252, 0.6);    /* blue */
+  --groupspanelhead: #6c208d;             /* purple */
+  --logo_color: white;
+  --logo_shadow: #31fffa; /* rgba(49, 243, 242) */
+  --logo_hover: white;
+  --logo_hover_shadow: #f79102;
+
+}
+
+
 body {
   position: relative;
-  /* background: url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?ixlib=rb-1.2.1&auto=format&fit=crop&w=2992&q=80'); */
+  /* Backgroud*/
+  /* background: url('https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260'); */
+  background: url('https://github.com/angel870326/BuyTogether/blob/main/img/Cute%20Christmas%20Cards%20Collection%20by%20Slidesgo.png?raw=true');
   background-position: center;
   background-size: cover;
-  height: 100vh;
+  height: 110vh;
   z-index: -2;
 }
 
@@ -17,32 +31,58 @@ div.overlay {
   z-index: -1;
 }
 
-/*Navbar*/
+/* (Add) Logo */
+.logo {
+  color: var(--logo_color);
+  font-family: fantasy, cursive, serif;
+  font-size: 30px;
+  text-shadow: 2px 2px 1px var(--logo_shadow);
+}
+.logo:hover {
+  text-decoration: none;
+  color: var(--logo_hover);
+  text-shadow: 2px 2px 1px var(--logo_hover_shadow);
+}
+
+/* Navbar */
+
+/* New group */
 nav .new-task-btn {
-  color: #505050;
+  color: var(--navbar);
   padding: 8px 12px;
   border-radius: 30px;
 }
 
+nav .new-task-btn:hover {
+  text-shadow: 1px 1px 2px white;  
+}
+
+/* Login now or Logout */
 nav .log-out-btn {
-  background: #FFFFFF;
   padding: 8px 12px;
   border-radius: 30px;
   text-decoration: none;
-  color: #505050;
+  color: var(--navbar);
+}
+nav .log-out-btn:hover {
+  text-shadow: 1px 1px 2px white;
 }
 
-/*Display Section*/
+/* Display Section */
 section#display-container {
   width: 90%;
   margin: 50px auto;
 }
 
+/* groups panel background */
 #display-panel {
-  background: rgba(64, 64, 64, .4);
+  background: var(--groupspanel);
   padding: 0 15px 3px 15px;
 }
 
+/* groups panel header */
 #display-panel h3 {
-  color: rgb(240, 240, 240);
+  color: var(--groupspanelhead);
 }
+
+

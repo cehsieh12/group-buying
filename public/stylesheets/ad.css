@@ -1,0 +1,73 @@
+/* New Ad */
+
+:root {
+	--newAd_field_fg: gray-dark;
+	--newAd_field_bg: white;
+	--newAd_field_bolder: rgba(49, 243, 242, 0.5);
+	--newAd_field_typing: gray-dark;
+	--newAd_field_typing_bg: white;  /*rgba(216, 242, 252)*/
+	--newAd_field_typing_bolder: rgba(49, 243, 242, 0.5);
+	--newAd_field_typing_shadow: rgba(49, 243, 242, 0.2);  /*rgba(49, 243, 242, 0.1)*/
+	--newAd_field_title:;
+	--btnbg: #418d20;                   /* Green */
+
+}
+
+#display-panel h3 {
+  color: var(--btnbg);
+}
+
+.new-ad {
+  color: var(--btnbg);
+  font-family: fantasy, cursive, serif;
+  font-weight: bold;
+  text-shadow: 3px 3px 2px white;
+}
+
+.submit-newAd-btn {
+	text-align: center;
+	padding: 2px 0;
+	width: 30%;
+	margin-left: 35%;
+	margin-right: 35%;
+	border-radius: 10px;
+	text-decoration: none;
+	color: rgba(255, 255, 255, 0.9);
+	background-color: var(--btnbg);
+	border: none;
+	vertical-align: center;
+}
+
+.submit-newAd-btn:hover {
+	color: rgba(255, 255, 255);
+  	-webkit-box-shadow: 1px 1px 8px -1px rgba(71,71,71,1);
+  	-moz-box-shadow: 1px 1px 8px -1px rgb(63, 25, 25);
+  	box-shadow: 1px 1px 8px -1px rgba(71,71,71,1);
+}	
+
+
+/* Edited from bootstrap.css */
+
+.form-control-newcss {
+  color: var(--newAd_field_fg);
+  background-color: var(--newAd_field_bg);
+  background-clip: padding-box;
+  border: 1px solid var(--newAd_field_bolder);
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control-newcss:focus {
+  color: var(--newAd_field_typing);
+  background-color: var(--newAd_field_typing_bg);
+  border-color: var(--newAd_field_typing_bolder);
+  box-shadow: 0 0 0 0.2rem var(--newAd_field_typing_shadow);
+}
+
+.form-ad {
+  color: var(--newAd_field_title);
+}
+
+.form-row-newcss {
+  color: var(--newAd_field_title);
+}
