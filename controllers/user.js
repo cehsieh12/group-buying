@@ -64,6 +64,6 @@ module.exports = {
     res.redirect('/users/login')
   },
   getAccount:(req,res) =>{
-    res.render('account',)
+    res.render('account', { accountCSS: true, formValidation: true })
   }
 }
