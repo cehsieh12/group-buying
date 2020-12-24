@@ -17,6 +17,10 @@ section {
   z-index: 1;
 }
 
+.card-columns {
+  max-height: 380px;
+}
+
 .all-groups {
   font-family: fantasy, cursive, serif;
   font-weight: bold;

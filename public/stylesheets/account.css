@@ -6,9 +6,25 @@
   --btnbg: #6c208d;       /* darkest purple */
 }
 
+section#display-container {
+  width: 90%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  margin-bottom: 0rem;
+}
+
+.card-columns {
+  max-height: 330px;
+}
+
 #hidden-panel {
   background: transparent;
-  padding: 0 15px 3px 15px;
+  padding: 0px 15px 3px 15px;
+  overflow-y: scroll;
+  max-height: 600px;
 }
 
 .table-account {
@@ -22,7 +38,7 @@
 }
 
 .account-title {
-  padding-top: 0.5rem;
+  padding-top: 0rem;
   color: var(--btnbg);
   font-weight: bold;
   font-size: 1.2rem;
@@ -104,15 +120,20 @@ section {
 }
 
 .group-list {
-  max-height: 400px;
+  min-height: 55px;
+  max-height: 350px;
   border-radius: 10px;
   overflow-x: scroll;
   background: var(--group_lists);
   padding: 0px;
+  margin-bottom: 20px;
 }
+
+/*110vh*/
 
 .group-list .row {
   min-height: 55px;
+  max-height: 350px;
   border-radius: 5px;
   list-style-type: none;
   font-size: 1.5rem;
@@ -129,7 +150,7 @@ section {
   display: flex;
   -ms-flex-direction: column;
   flex-direction: column;
-  min-width: 200px;
+  min-width: 300px;
   background-color: #fff;
 }
 
