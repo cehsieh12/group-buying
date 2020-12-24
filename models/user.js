@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     gender: DataTypes.STRING,      
     password: DataTypes.STRING,
+    amount:DataTypes.INTEGER
   }, {});
   // User.associate = function (models) {
   //   // associations can be defined here

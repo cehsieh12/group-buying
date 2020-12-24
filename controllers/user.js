@@ -4,6 +4,9 @@ const { validationResult } = require('express-validator')
 // Include user model
 const db = require('../models')
 const User = db.User
+const Group = db.Group
+const Join = db.Join
+const { QueryTypes } = require('sequelize');
 
 module.exports = {
   getLogin: (req, res) => {
@@ -46,7 +49,8 @@ module.exports = {
               email, 
               gender,
               email,
-              password: hash
+              password: hash,
+              amount:0
             })
             newUser
               .save()
@@ -64,6 +68,31 @@ module.exports = {
     res.redirect('/users/login')
   },
   getAccount:(req,res) =>{
-    res.render('account', { accountCSS: true, formValidation: true })
+    var uid = req.params.uid;
+    console.log(uid);
+    // 取得User資料
+    // 取得Group表中initiatorId為此uid的資料
+    // 取得Join表中C_id有此uid的資料 再join Group表
+    const asyncFindUsers = async()=>{
+      let user = await User.findOne({where:{id:uid}});
+      return user.toJSON();
+    }
+    const asyncFindInitGroups = async()=>{
+      let initGroups = await db.sequelize.query(`SELECT * FROM Groups WHERE initiatorId = ${uid}`, { type: QueryTypes.SELECT })
+      return initGroups;
+    }
+
+    // SELECT * FROM Groups Where id IN (Select G_id FROM Joins Where C_id = 2);
+    const asyncFindJoinGroups = async()=>{
+      let joinGroups = await db.sequelize.query(`SELECT * FROM Groups WHERE id IN (Select G_id FROM Joins Where C_id = ${uid})`, { type: QueryTypes.SELECT });
+      return joinGroups;
+    }
+    Promise.all([asyncFindUsers(), asyncFindInitGroups(),asyncFindJoinGroups()]).then(values => {
+      var user = values[0]
+      var initGroups = values[1]
+      var joinGroups = values[2]
+      res.render('account', { user,initGroups,joinGroups, noInitGroup: initGroups.length === 0, nojoinGroup: joinGroups.length === 0 })
+    });
+
   }
 }

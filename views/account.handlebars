@@ -11,39 +11,39 @@
         <table class="table-account">
           <tr>
             <td>ID: </td>
-            <td>var_id</td>
+            <td>{{user.id}}</td>
           </tr>
           <tr>
             <td>First name: </td>
-            <td>var_fname</td>
+            <td>{{user.Fname}}</td>
           </tr>
           <tr>
             <td>Last name: </td>
-            <td>var_lname</td>
+            <td>{{user.Lname}}</td>
           </tr>
           <tr>
             <td>Address: </td>
-            <td>var_addr</td>
+            <td>{{user.address}}</td>
           </tr>
           <tr>
             <td>Phone: </td>
-            <td>var_phone</td>
+            <td>{{user.phone}}</td>
           </tr>
           <tr>
             <td>Email: </td>
-            <td>var_nail</td>
+            <td>{{user.email}}</td>
           </tr>
           <tr>
             <td>Birth: </td>
-            <td>var_birth</td>
+            <td>{{user.Birth}}</td>
           </tr>
           <tr>
             <td>Gender: </td>
-            <td>var_sex</td>
+            <td>{{user.gender}}</td>
           </tr>
           <tr>
             <td>Account balance: </td>
-            <td>var_amount</td>
+            <td>{{user.amount}}</td>
           </tr>
           <tr>
             <td></td>
@@ -51,7 +51,7 @@
           </tr>
 
         </table>
-        
+
       </div>
 
       <!-- Groups -->
@@ -63,7 +63,7 @@
           <div class="row animated bounceInRight">
             <div class="card-columns">
 
-              <!-- Examples -->
+              {{#each initGroups}}
               <div class="col">
                 <div class="card card-dec bg-light mb-3">
                   <div class="card-body">
@@ -84,32 +84,11 @@
                   </div>
                 </div>
               </div>
-              <div class="col">
-                <div class="card card-dec bg-light mb-3">
-                  <div class="card-body">
-                    <h5 class="card-title">{{this.name}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{this.category}}</h6>
-                    <div class="progress">
-                      <!-- to be added -->
-                    </div>
-                    <p class="card-text">
-                      Deadline: {{this.deadline}}<br />
-                      Min number: {{this.minNum}}<br />
-                      Max number: {{this.maxNum}}<br />
-                      Area: {{this.addr}}<br />
-                      Contact information: {{this.contactInfo}}<br />
-                      Number now: {{this.number}}<br />
-                    </p>
-                    <a href="/groups/view/{{this.id}}" class="card-link btn-block">Details</a>
-                  </div>
-                </div>
-              </div>
-              <!-- End of Examples -->
-
+              {{/each}}
 
             </div>
             <!-- 要改條件 -->
-            {{#if noPost}}
+            {{#if noInitGroup}}
             <div class="row align-items-center justify-content-center text-muted text-sm">
               <i class="far fa-smile-beam pr-1 text-sm"></i>
               <label class="text-sm">No Group Now!</label>
@@ -119,15 +98,14 @@
         </div>
 
 
-        <br/>
+        <br />
 
         <!-- Groups I Join -->
         <label class="account-title">Groups I Join</label>
         <div class="group-list">
           <div class="row animated bounceInRight">
             <div class="card-columns">
-
-              <!-- Examples -->
+              {{#each joinGroups}}
               <div class="col">
                 <div class="card card-dec bg-light mb-3">
                   <div class="card-body">
@@ -148,32 +126,10 @@
                   </div>
                 </div>
               </div>
-              <div class="col">
-                <div class="card card-dec bg-light mb-3">
-                  <div class="card-body">
-                    <h5 class="card-title">{{this.name}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{this.category}}</h6>
-                    <div class="progress">
-                      <!-- to be added -->
-                    </div>
-                    <p class="card-text">
-                      Deadline: {{this.deadline}}<br />
-                      Min number: {{this.minNum}}<br />
-                      Max number: {{this.maxNum}}<br />
-                      Area: {{this.addr}}<br />
-                      Contact information: {{this.contactInfo}}<br />
-                      Number now: {{this.number}}<br />
-                    </p>
-                    <a href="/groups/view/{{this.id}}" class="card-link btn-block">Details</a>
-                  </div>
-                </div>
-              </div>
-              <!-- End of Examples -->
-
-
+              {{/each}}
             </div>
             <!-- 要改條件 -->
-            {{#if noPost}}
+            {{#if nojoinGroup}}
             <div class="row align-items-center justify-content-center text-muted text-sm">
               <i class="far fa-smile-beam pr-1 text-sm"></i>
               <label class="text-sm">No Group Now!</label>
@@ -190,7 +146,7 @@
 
 
 
-     
+
 
 
 
