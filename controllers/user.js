@@ -91,7 +91,7 @@ module.exports = {
       var user = values[0]
       var initGroups = values[1]
       var joinGroups = values[2]
-      res.render('account', { user,initGroups,joinGroups, noInitGroup: initGroups.length === 0, nojoinGroup: joinGroups.length === 0 })
+      res.render('account', { accountCSS: true, formValidation: true, user,initGroups,joinGroups, noInitGroup: initGroups.length === 0, nojoinGroup: joinGroups.length === 0 })
     });
 
   }
