@@ -16,6 +16,9 @@ module.exports = {
                 addr: area,
                 deadline:{
                     [Op.gt]: moment().tz('Asia/Taipei').format()
+                },
+                number:{
+                  [Op.ne]: db.sequelize.col('maxNum')
                 }
             },
             order: [['deadline', 'ASC']]
@@ -44,6 +47,9 @@ module.exports = {
             where: {
                 deadline:{
                     [Op.gt]: moment().tz('Asia/Taipei').format()
+                },
+                number:{
+                  [Op.ne]: db.sequelize.col('maxNum')
                 }
             },
             order: [['deadline', date]]
@@ -72,6 +78,9 @@ module.exports = {
                 category: category,
                 deadline:{
                     [Op.gt]: moment().tz('Asia/Taipei').format()
+                },
+                number:{
+                  [Op.ne]: db.sequelize.col('maxNum')
                 }
             },
             order: [['deadline', 'ASC']]
