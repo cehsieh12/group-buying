@@ -26,7 +26,7 @@ module.exports = {
     const { name, minNum, maxNum, deadline, addr, contactInfo,content, p_name, category, price } = req.body
     // retrieve error message from express-validator
     const errors = validationResult(req)
-    // one or more error messages exist
+    // error messages exist
     if (!errors.isEmpty()) {
       return res.status(422).render('new', {
         postFormCSS: true,
@@ -35,7 +35,6 @@ module.exports = {
         group: { name, minNum, maxNum, deadline, addr, contactInfo, content, p_name, category, price }
       })
     }
-    // 新增產品後取得p_id再新增group
     Product.create({
       p_name,
       category,
@@ -57,7 +56,6 @@ module.exports = {
         .then(group => res.redirect('/'))
         .catch(error => res.status(422).json(error))
     });
-   
   },
   getViewOneGroup:(req, res)=>{  
     var isJoined = true;

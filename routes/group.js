@@ -13,10 +13,10 @@ router.get('/', isAuthenticated, groupController.getViewAllGroup)
 // advertisement
 router.get('/ad', groupController.getNewAd)
 
-// create new post
+// render new group form page
 router.get('/new', isAuthenticated, groupController.getNewPage)
 
-// submit new post
+// submit new group
 router.post('/new', isAuthenticated, validation.newPost, groupController.postNewGroup)
 
 // show one post
