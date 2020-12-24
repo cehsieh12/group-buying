@@ -30,8 +30,8 @@ module.exports = {
           group.dataValues.deadline = convertedDate
         })
         res.render('index', { groups, indexCSS: true, dateOptions, noPost: groups.length === 0, hasAnimation: true, helpers: {
-          progressBar: function (current,max) { return ((current/max)*100).toFixed(1); }
-      } })
+          progressBar: function (current,max) { return ((current/max)*100).toFixed(1); }}
+        })
       })
       .catch(error => res.status(422).json(error))
   }

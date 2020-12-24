@@ -1,6 +1,12 @@
+:root {
+  --btnbg_light: #b8a1f8;             /* light purple */
+  --btnbg: #6c208d;                   /* darkest purple */
+
+}
+
 div.detail-panel-title {
   min-height: 40px;
-  background: rgba(176, 176, 176, .6);
+  background: transparent;
 }
 
 div.detail-panel-title .badge {
@@ -13,7 +19,11 @@ div.detail-panel-title .badge-danger {
 
 div.detail-panel-detail {
   min-height: 100px;
-  background: rgba(176, 176, 176, .6);
+  background: transparent;
+  /*
+  border: dotted;
+  border-color: var(--btnbg);
+  */
 }
 
 /* div.detail-panel-detail:hover .edit-btn,
@@ -23,17 +33,49 @@ div.detail-panel-detail:hover .delete-btn {
   transition: all .2s linear;
 } */
 
+.group-detail {
+  font-family: fantasy, cursive, serif;
+  font-weight: bold;
+  text-shadow: 3px 3px 2px white;
+}
+
+.number-bg {
+  background-color: var(--btnbg);
+  color: white;
+  outline: none;
+}
+
+.number-bg:focus {
+  outline: none;
+}
+
+.title-col {
+  color: var(--btnbg);
+}
+
+.hidden-btn {
+  border: none; 
+  border-color: transparent;
+  background-color: transparent;
+  outline: none;
+}
+
+.hidden-btn:focus {
+  outline: none;
+}
+
 .edit-btn,
 .delete-btn,
 .join-btn,
 .out-btn {
-  color: #000000;
+  color: var(--btnbg);
   font-size: 1.3rem;
+  padding-bottom: 0.5rem;
   background-color: transparent;
   border: none;
   /* visibility: hidden; */
   /* opacity: 0; */
-  text-shadow: 1px 1px 1px #4C4C4C;
+  text-shadow: 2px 2px 1px white;
 }
 
 .edit-btn:hover,
@@ -41,16 +83,53 @@ div.detail-panel-detail:hover .delete-btn {
 .join-btn:hover,
 .out-btn:hover {
   text-decoration: none;
-  color: #000000;
+  color: var(--btnbg_light);
 }
 
+.edit-btn:focus,
+.delete-btn:focus,
+.join-btn:focus,
+.out-btn:focus {
+  border: none;
+  outline: none;
+}
+
+.text-confirm {
+  color: var(--btnbg);
+}
+
+.block-btn {
+  color: white;
+  text-align: center;
+  padding: 2px 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 1rem;
+  background-color: var(--btnbg);
+  border: none;
+  outline: none;
+}
+
+.block-btn:hover {
+  text-decoration: none;
+  color: white;
+  -webkit-box-shadow: 1px 1px 8px -1px rgba(71, 71, 71, 1);
+  -moz-box-shadow: 1px 1px 8px -1px rgb(63, 25, 25);
+  box-shadow: 1px 1px 8px -1px rgba(71, 71, 71, 1);
+}
+
+.block-btn:focus {
+  outline: none;
+}
+
+/* Delete Confirmation */
 .delete-modal {
-  font-family: 'Lobster', cursive;
-  color: #505050;
+  /*font-family: 'Lobster', cursive;*/
+  color: black;
 }
 
 .delete-modal .modal-body {
-  font-family: 'Reem Kufi', sans-serif;
+  /*font-family: 'Reem Kufi', sans-serif;*/
 }
 
 .delete-model-btns button {

@@ -2,16 +2,16 @@
 <!--Detail Page-->
 <section id="display-container" class="position-relative rounded shadow">
   <div class="rounded" id="display-panel">
-    <h3 class="text-center pt-3 pb-3"><u>Group</u></h3>
-    <div class="detail-panel-title mb-2 d-flex align-items-center px-3">
+    <h3 class="text-center pt-3 pb-3 group-detail">Group Detail</h3>
+    <div class="detail-panel-title title-col mb-2 d-flex align-items-center px-3">
       <h5 class="m-0 pr-3"><i class="far fa-file-alt"></i></h5>
       <h4 class="m-0">{{group.name}}</h4>
       <h5 class="my-0 ml-auto">
-        <span class="badge badge-danger">{{#if group.number }}{{group.number}}{{else}}0{{/if}}人/{{group.maxNum}}人</span>
+        <span class="badge badge-danger number-bg">{{#if group.number }}{{group.number}}{{else}}0{{/if}}人/{{group.maxNum}}人</span>
         {{#if isFull}}
-        <button type="button" id="group-list-btn" data-toggle="modal" data-target="#list{{group.id}}"
+        <button class="hidden-btn" type="button" id="group-list-btn" data-toggle="modal" data-target="#list{{group.id}}"
           group-id="{{group.id}}" initiator-id="{{group.initiatorId}}">
-          <span class="badge badge-success">Group List</span>
+          <span class="badge badge-success number-bg">Group List</span>
         </button>
         {{/if}}
       </h5>
@@ -21,10 +21,14 @@
       <p class="m-0">{{group.deadline}}</p>
     </div>
     <div class="detail-panel-detail mb-2 px-3 d-flex flex-column justify-content-between text-break">
-      <p class="p-0 m-0 pt-2">{{product.p_name}}</p>
-      <p class="p-0 m-0 pt-2">{{product.price}}元</p>
+      <p class="p-0 m-0 pt-2">Product name:  {{product.p_name}}</p>
+      <p class="p-0 m-0 pt-2">Category:  {{group.category}}</p>
+      <p class="p-0 m-0 pt-2">Product price:  NT$ {{product.price}}</p>
+      <p class="p-0 m-0 pt-2">Area:  {{group.addr}}</p>
+      <p class="p-0 m-0 pt-2">Contact information:  {{group.contactInfo}}</p>
+      <p class="p-0 m-0 pt-2">Content:  {{group.content}}</p>
+
       <p class="p-0 m-0 pt-2">{{group.attr}}</p>
-      <p class="p-0 m-0 pt-2">{{group.content}}</p>
 
       <div class="detail-buttons d-flex justify-content-end pb-1">
         {{#if isInitiator }}
@@ -35,19 +39,21 @@
         {{#if isJoined}}
         {{#unless isFull}}
         <button type="button" class="out-btn" data-toggle="modal" data-target="#leave{{group.id}}">
-          <i class="fas fa-sign-out-alt mr-2"></i>退出
+          <i class="fas fa-sign-out-alt mr-2"></i>OUT
         </button>
         {{/unless}}
         {{else}}
         {{#unless isFull}}
         {{#unless isInitiator}}
         <button type="button" class="join-btn" data-toggle="modal" data-target="#j{{group.id}}">
-          <i class="fas fa-sign-in-alt mr-2"></i>加入
+          <i class="fas fa-sign-in-alt mr-2"></i>IN
         </button>
         {{/unless}}
         {{/unless}}
         {{/if}}
       </div>
+
+      <!-- Delete Confirmation -->
       <div class="modal fade delete-modal" id="d{{group.id}}" tabindex="-1" role="dialog"
         aria-labelledby="Model for delete warning" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -60,39 +66,43 @@
               <h5 class="p-0 m-0">Do you want to delete "{{group.name}}"?</h5>
             </div>
             <div class="modal-footer delete-model-btns border-0 pt-1">
-              <button type="button" id="delete-model-back" data-dismiss="modal">Go back</button>
+              <button class="block-btn" type="button" id="delete-model-back" data-dismiss="modal">Go back</button>
               <form action="/groups/delete/{{group.id}}?_method=DELETE" method="post" class="m-0">
                 <!--CSRF token-->
                 <input type="hidden" name="_csrf" value="{{csrfToken}}">
-                <button type="submit" id="delete-model-delete">Delete</button>
+                <button class="block-btn" type="submit" id="delete-model-delete">Delete</button>
               </form>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Join Confirmation -->
       <div class="modal fade join-modal" id="j{{group.id}}" tabindex="-1" role="dialog"
         aria-labelledby="Model for delete warning" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header border-0 pb-1">
-              <h5 class="modal-title" id="exampleModalCenterTitle">Join Confirmation</h5>
+              <h5 class="modal-title  text-confirm" id="exampleModalCenterTitle">Join Confirmation</h5>
             </div>
             <div class="modal-body">
               <h5 class="p-0 m-0">Do you want to join "{{group.name}}"?</h5>
             </div>
             <div class="modal-footer join-model-btns border-0 pt-1">
-              <button type="button" id="join-model-back" data-dismiss="modal">Go back</button>
+              <button class="block-btn type="button" id="join-model-back" data-dismiss="modal">Go back</button>
               <form action="/groups/join/{{group.id}}" method="post" class="m-0">
                 <!--CSRF token-->
                 <input type="hidden" name="groupId" value="{{group.id}}">
                 <input type="hidden" name="initiatorId" value="{{group.initiatorId}}">
                 <input type="hidden" name="_csrf" value="{{csrfToken}}">
-                <button type="submit" id="join-model-join">Join</button>
+                <button class="block-btn type="submit" id="join-model-join">Join</button>
               </form>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Leave Confirmation -->
       <div class="modal fade out-modal" id="leave{{group.id}}" tabindex="-1" role="dialog"
         aria-labelledby="Model for delete warning" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -101,27 +111,29 @@
               <h5 class="modal-title" id="exampleModalCenterTitle">Leave Confirmation</h5>
             </div>
             <div class="modal-body">
-              <h5 class="p-0 m-0">Do you want to leave "{{group.name}}"?</h5>
+              <h5 text-confirm class="p-0 m-0">Do you want to leave "{{group.name}}"?</h5>
             </div>
             <div class="modal-footer join-model-btns border-0 pt-1">
-              <button type="button" id="join-model-back" data-dismiss="modal">Go back</button>
+              <button class="block-btn type="button" id="join-model-back" data-dismiss="modal">Go back</button>
               <form action="/groups/leave/{{group.id}}" method="post" class="m-0">
                 <!--CSRF token-->
                 <input type="hidden" name="groupId" value="{{group.id}}">
                 <input type="hidden" name="initiatorId" value="{{group.initiatorId}}">
                 <input type="hidden" name="_csrf" value="{{csrfToken}}">
-                <button type="submit" id="leave-model-join">Leave</button>
+                <button class="block-btn type="submit" id="leave-model-join">Leave</button>
               </form>
             </div>
           </div>
         </div>
       </div>
-      <div class="modal fade out-modal" id="list{{group.id}}" tabindex="-1" role="dialog"
+
+      <!-- Group List -->
+      <div class="modal fade out-modal " id="list{{group.id}}" tabindex="-1" role="dialog"
         aria-labelledby="Model for delete warning" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header border-0 pb-1">
-              <h5 class="modal-title" id="exampleModalCenterTitle">Group List</h5>
+              <h5 class="modal-title title-col" id="exampleModalCenterTitle">Group List</h5>
             </div>
             <div class="modal-body">
               <h5 class="p-0 m-0">Group Name: {{group.name}}</h5>
@@ -143,7 +155,7 @@
               </table>
             </div>
             <div class="modal-footer join-model-btns border-0 pt-1">
-              <button type="button" id="join-model-back" data-dismiss="modal">Go back</button>
+              <button class="block-btn type="button" id="join-model-back" data-dismiss="modal">Go back</button>
             </div>
           </div>
         </div>
