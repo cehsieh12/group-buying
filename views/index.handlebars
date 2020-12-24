@@ -1,69 +1,72 @@
 <section id="display-container" class="rounded shadow">
   <div class="rounded position" id="display-panel">
     <h3 class="text-center py-3 all-groups">All Groups</h3>
-    <div class="form-row">
-      <div class="dropdown col-4 text-center">
-        <form action="/search/area" method="get" id="filter-panel" class="mb-1">
+    <form action="/search" method="get" id="filter-panel" class="mb-1">
+      <div class="form-row">
+
+        <div class="dropdown col-4 text-center">
           <button class="btn btn-link dropdown-toggle text-dark" type="button" id="sortDropDownMenu"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{#if filter.area}}{{filter.area}}{{else}}Area{{/if}}
+            {{#if filter.sort}}{{filter.sort}}{{else}}Area{{/if}}
           </button>
           <div class="dropdown-menu" aria-labelledby="sortDropDownMenu">
-            <input type="submit" class="dropdown-item" name="area" value="Taipei">
-            <input type="submit" class="dropdown-item" name="area" value="Taoyuan">
-            <input type="submit" class="dropdown-item" name="area" value="Hsinchu">
-            <input type="submit" class="dropdown-item" name="area" value="Miaoli">
-            <input type="submit" class="dropdown-item" name="area" value="Taichung">
-            <input type="submit" class="dropdown-item" name="area" value="Changhua">
-            <input type="submit" class="dropdown-item" name="area" value="Nantou">
-            <input type="submit" class="dropdown-item" name="area" value="Yunlin">
-            <input type="submit" class="dropdown-item" name="area" value="Chiayi">
-            <input type="submit" class="dropdown-item" name="area" value="Tainan">
-            <input type="submit" class="dropdown-item" name="area" value="Kaohsiung">
-            <input type="submit" class="dropdown-item" name="area" value="Pingtung">
-            <input type="submit" class="dropdown-item" name="area" value="Yilan">
-            <input type="submit" class="dropdown-item" name="area" value="Hualien">
-            <input type="submit" class="dropdown-item" name="area" value="Taitung">
-            <input type="submit" class="dropdown-item" name="area" value="Penghu">
-            <input type="submit" class="dropdown-item" name="area" value="Green Island & Orchid Island">
-            <input type="submit" class="dropdown-item" name="area" value="Kinmen & Matsu">
+            <input type="hidden" name="preSort" value="{{filter.sort}}">
+            <input type="submit" class="dropdown-item" name="sort" value="Taipei">
+            <input type="submit" class="dropdown-item" name="sort" value="Taoyuan">
+            <input type="submit" class="dropdown-item" name="sort" value="Hsinchu">
+            <input type="submit" class="dropdown-item" name="sort" value="Miaoli">
+            <input type="submit" class="dropdown-item" name="sort" value="Taichung">
+            <input type="submit" class="dropdown-item" name="sort" value="Changhua">
+            <input type="submit" class="dropdown-item" name="sort" value="Nantou">
+            <input type="submit" class="dropdown-item" name="sort" value="Yunlin">
+            <input type="submit" class="dropdown-item" name="sort" value="Chiayi">
+            <input type="submit" class="dropdown-item" name="sort" value="Tainan">
+            <input type="submit" class="dropdown-item" name="sort" value="Kaohsiung">
+            <input type="submit" class="dropdown-item" name="sort" value="Pingtung">
+            <input type="submit" class="dropdown-item" name="sort" value="Yilan">
+            <input type="submit" class="dropdown-item" name="sort" value="Hualien">
+            <input type="submit" class="dropdown-item" name="sort" value="Taitung">
+            <input type="submit" class="dropdown-item" name="sort" value="Penghu">
+            <input type="submit" class="dropdown-item" name="sort" value="Green Island & Orchid Island">
+            <input type="submit" class="dropdown-item" name="sort" value="Kinmen & Matsu">
             <div class="dropdown-divider"></div>
-            <a href="/" class="dropdown-item">Reset</a>
+            <input type="submit" class="dropdown-item" name="doneReset" value="Reset">
           </div>
-        </form>
-      </div>
-      <div class="dropdown col-4 text-center">
-        <form action="/search/date" method="get" id="filter-panel" class="mb-1">
+        </div>
+
+        <div class="dropdown col-4 text-center">
           <button class="btn btn-link dropdown-toggle text-dark" type="button" id="dateDropDownMenu"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{#if filter.deadline}}{{filter.deadline}}{{else}}Date Order{{/if}}
+            {{#if filter.dueDate}}{{filter.dueDate}}{{else}}Deadline{{/if}}
           </button>
           <div class="dropdown-menu" aria-labelledby="dateDropDownMenu">
-            <input type="submit" class="dropdown-item" name="date" value="Furthest date">
-            <input type="submit" class="dropdown-item" name="date" value="Closest date">
+            <input type="hidden" name="preDate" value="{{filter.dueDate}}">
+            <input type="submit" class="dropdown-item" name="date" value="24 hours">
+            <input type="submit" class="dropdown-item" name="date" value="3 days">
+            <input type="submit" class="dropdown-item" name="date" value="A week">
             <div class="dropdown-divider"></div>
-            <a href="/" class="dropdown-item">Reset</a>
+            <input type="submit" class="dropdown-item" name="dateReset" value="Reset">
           </div>
-        </form>
-      </div>
-      <div class="dropdown col-4 text-center">
-        <form action="/search/category" method="get" id="filter-panel" class="mb-1">
+        </div>
+
+        <div class="dropdown col-4 text-center">
           <button class="btn btn-link dropdown-toggle text-dark" type="button" id="statusDropDownMenu"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{#if filter.category}}{{filter.category}}{{else}}Category{{/if}}
+            {{#if filter.status}}{{filter.status}}{{else}}Category{{/if}}
           </button>
           <div class="dropdown-menu" aria-labelledby="statusDropDownMenu">
+            <input type="hidden" name="preDone" value="{{filter.status}}">
             <input type="submit" class="dropdown-item" name="category" value="Food">
             <input type="submit" class="dropdown-item" name="category" value="Daily Supplies">
             <input type="submit" class="dropdown-item" name="category" value="Apparel">
             <input type="submit" class="dropdown-item" name="category" value="Entertainment">
             <input type="submit" class="dropdown-item" name="category" value="Others">
             <div class="dropdown-divider"></div>
-            <a href="/" class="dropdown-item">Reset</a>
+            <input type="submit" class="dropdown-item" name="doneReset" value="Reset">
           </div>
-        </form>
+        </div>
       </div>
-    </div>
+    </form>
     <hr>
     <div class="group-list">
       <div class="row animated bounceInUp">
