@@ -57,7 +57,7 @@
       <!-- Groups -->
       <div class="col-6" id="hidden-panel">
 
-        <!-- Groups I initiate -->
+        <!-- Groups I Initiate -->
         <label class="account-title">Groups I initiate</label>
         <div class="group-list">
           <div class="row animated bounceInRight">
@@ -70,7 +70,9 @@
                     <h5 class="card-title">{{this.name}}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{this.category}}</h6>
                     <div class="progress">
-                      <!-- to be added -->
+                      <div class="progress-bar" role="progressbar" style="width: {{progressBar this.number this.maxNum}}%;" aria-valuenow="{{progressBar this.number this.maxNum}}" aria-valuemin="0" aria-valuemax="100">
+                        {{progressBar this.number this.maxNum}}%
+                      </div>
                     </div>
                     <p class="card-text">
                       Deadline: {{this.deadline}}<br />
@@ -85,9 +87,7 @@
                 </div>
               </div>
               {{/each}}
-
             </div>
-            <!-- 要改條件 -->
             {{#if noInitGroup}}
             <div class="row align-items-center justify-content-center text-muted text-sm">
               <i class="far fa-smile-beam pr-1 text-sm"></i>
@@ -96,7 +96,6 @@
             {{/if}}
           </div>
         </div>
-
 
         <br />
 
@@ -112,7 +111,9 @@
                     <h5 class="card-title">{{this.name}}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{this.category}}</h6>
                     <div class="progress">
-                      <!-- to be added -->
+                      <div class="progress-bar" role="progressbar" style="width: {{progressBar this.number this.maxNum}}%;" aria-valuenow="{{progressBar this.number this.maxNum}}" aria-valuemin="0" aria-valuemax="100">
+                        {{progressBar this.number this.maxNum}}%
+                      </div>
                     </div>
                     <p class="card-text">
                       Deadline: {{this.deadline}}<br />
@@ -128,7 +129,6 @@
               </div>
               {{/each}}
             </div>
-            <!-- 要改條件 -->
             {{#if nojoinGroup}}
             <div class="row align-items-center justify-content-center text-muted text-sm">
               <i class="far fa-smile-beam pr-1 text-sm"></i>
@@ -139,21 +139,5 @@
         </div>
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-    </form>
-
-
-
-  </div>
   </div>
 </section>
