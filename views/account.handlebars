@@ -1,1 +1,203 @@
-<h1>test</h1>
+<!-- Account -->
+
+<section id="display-container" class="rounded shadow">
+  <div class="rounded position" id="display-panel">
+    <h3 class="text-center py-3 my-account">My Account</h3>
+    <div class="form-row">
+
+      <!-- Personal Information -->
+      <div class="col-6" id="hidden-panel">
+        <label class="account-title">Personal Information</label>
+        <table class="table-account">
+          <tr>
+            <td>ID: </td>
+            <td>var_id</td>
+          </tr>
+          <tr>
+            <td>First name: </td>
+            <td>var_fname</td>
+          </tr>
+          <tr>
+            <td>Last name: </td>
+            <td>var_lname</td>
+          </tr>
+          <tr>
+            <td>Address: </td>
+            <td>var_addr</td>
+          </tr>
+          <tr>
+            <td>Phone: </td>
+            <td>var_phone</td>
+          </tr>
+          <tr>
+            <td>Email: </td>
+            <td>var_nail</td>
+          </tr>
+          <tr>
+            <td>Birth: </td>
+            <td>var_birth</td>
+          </tr>
+          <tr>
+            <td>Gender: </td>
+            <td>var_sex</td>
+          </tr>
+          <tr>
+            <td>Account balance: </td>
+            <td>var_amount</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><a href="" class="card-link btn-block btn-deposit">Deposit</a></td>
+          </tr>
+
+        </table>
+        
+      </div>
+
+      <!-- Groups -->
+      <div class="col-6" id="hidden-panel">
+
+        <!-- Groups I initiate -->
+        <label class="account-title">Groups I initiate</label>
+        <div class="group-list">
+          <div class="row animated bounceInRight">
+            <div class="card-columns">
+
+              <!-- Examples -->
+              <div class="col">
+                <div class="card card-dec bg-light mb-3">
+                  <div class="card-body">
+                    <h5 class="card-title">{{this.name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{this.category}}</h6>
+                    <div class="progress">
+                      <!-- to be added -->
+                    </div>
+                    <p class="card-text">
+                      Deadline: {{this.deadline}}<br />
+                      Min number: {{this.minNum}}<br />
+                      Max number: {{this.maxNum}}<br />
+                      Area: {{this.addr}}<br />
+                      Contact information: {{this.contactInfo}}<br />
+                      Number now: {{this.number}}<br />
+                    </p>
+                    <a href="/groups/view/{{this.id}}" class="card-link btn-block">Details</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card card-dec bg-light mb-3">
+                  <div class="card-body">
+                    <h5 class="card-title">{{this.name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{this.category}}</h6>
+                    <div class="progress">
+                      <!-- to be added -->
+                    </div>
+                    <p class="card-text">
+                      Deadline: {{this.deadline}}<br />
+                      Min number: {{this.minNum}}<br />
+                      Max number: {{this.maxNum}}<br />
+                      Area: {{this.addr}}<br />
+                      Contact information: {{this.contactInfo}}<br />
+                      Number now: {{this.number}}<br />
+                    </p>
+                    <a href="/groups/view/{{this.id}}" class="card-link btn-block">Details</a>
+                  </div>
+                </div>
+              </div>
+              <!-- End of Examples -->
+
+
+            </div>
+            <!-- 要改條件 -->
+            {{#if noPost}}
+            <div class="row align-items-center justify-content-center text-muted text-sm">
+              <i class="far fa-smile-beam pr-1 text-sm"></i>
+              <label class="text-sm">No Group Now!</label>
+            </div>
+            {{/if}}
+          </div>
+        </div>
+
+
+        <br/>
+
+        <!-- Groups I Join -->
+        <label class="account-title">Groups I Join</label>
+        <div class="group-list">
+          <div class="row animated bounceInRight">
+            <div class="card-columns">
+
+              <!-- Examples -->
+              <div class="col">
+                <div class="card card-dec bg-light mb-3">
+                  <div class="card-body">
+                    <h5 class="card-title">{{this.name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{this.category}}</h6>
+                    <div class="progress">
+                      <!-- to be added -->
+                    </div>
+                    <p class="card-text">
+                      Deadline: {{this.deadline}}<br />
+                      Min number: {{this.minNum}}<br />
+                      Max number: {{this.maxNum}}<br />
+                      Area: {{this.addr}}<br />
+                      Contact information: {{this.contactInfo}}<br />
+                      Number now: {{this.number}}<br />
+                    </p>
+                    <a href="/groups/view/{{this.id}}" class="card-link btn-block">Details</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card card-dec bg-light mb-3">
+                  <div class="card-body">
+                    <h5 class="card-title">{{this.name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{this.category}}</h6>
+                    <div class="progress">
+                      <!-- to be added -->
+                    </div>
+                    <p class="card-text">
+                      Deadline: {{this.deadline}}<br />
+                      Min number: {{this.minNum}}<br />
+                      Max number: {{this.maxNum}}<br />
+                      Area: {{this.addr}}<br />
+                      Contact information: {{this.contactInfo}}<br />
+                      Number now: {{this.number}}<br />
+                    </p>
+                    <a href="/groups/view/{{this.id}}" class="card-link btn-block">Details</a>
+                  </div>
+                </div>
+              </div>
+              <!-- End of Examples -->
+
+
+            </div>
+            <!-- 要改條件 -->
+            {{#if noPost}}
+            <div class="row align-items-center justify-content-center text-muted text-sm">
+              <i class="far fa-smile-beam pr-1 text-sm"></i>
+              <label class="text-sm">No Group Now!</label>
+            </div>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+     
+
+
+
+    </form>
+
+
+
+  </div>
+  </div>
+</section>
