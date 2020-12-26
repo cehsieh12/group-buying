@@ -170,7 +170,7 @@ module.exports = {
       return initiator.toJSON();
     }
     Promise.all([asyncFindUsers(), asyncFindInitiator()]).then(values => {
-      var data = {
+      let data = {
         initiator:values[1],
         users:values[0]
       }

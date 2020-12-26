@@ -68,7 +68,7 @@ module.exports = {
     res.redirect('/users/login')
   },
   getAccount:(req,res) =>{
-    var uid = req.params.uid;
+    let uid = req.params.uid;
     console.log(uid);
     // 取得User資料
     // 取得Group表中initiatorId為此uid的資料
@@ -88,15 +88,14 @@ module.exports = {
       return joinGroups;
     }
     Promise.all([asyncFindUsers(), asyncFindInitGroups(),asyncFindJoinGroups()]).then(values => {
-      var user = values[0]
-      var initGroups = values[1]
-      var joinGroups = values[2]
+      let user = values[0]
+      let initGroups = values[1]
+      let joinGroups = values[2]
       res.render('account', { accountCSS: true, formValidation: true, user,initGroups,joinGroups, noInitGroup: initGroups.length === 0, nojoinGroup: joinGroups.length === 0,
         helpers: {
           progressBar: function (current,max) { return ((current/max)*100).toFixed(1); }
         }
       })
     });
-
   }
 }
